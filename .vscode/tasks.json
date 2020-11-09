@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"command": ["yarn", "build:watch"],
+			"problemMatcher": [
+				"$tsc-watch"
+			],
+			"group": "build",
+			"label": "yarn: build:watch",
+			"detail": "tsc -p tsconfig.json",
+			"isBackground": true
+		}
+	]
+}

@@ -1,0 +1,106 @@
+{
+  "name": "@superfaceai/language-client-vscode",
+  "displayName": "Superface Language Client",
+  "description": "Superface Language Client for VSCode",
+  "version": "0.0.1",
+  "author": "Superface Team",
+  "license": "MIT",
+  "files": [
+    "dist/**/*",
+    "syntaxes/**/*.tmLanguage.json"
+  ],
+  "devDependencies": {
+    "@types/node": "^14.14.6",
+    "@types/vscode": "1.50.0",
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "@typescript-eslint/parser": "^4.6.0",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-import-resolver-typescript": "^2.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "prettier": "^2.1.2",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.0.5"
+  },
+  "dependencies": {
+    "@superfaceai/language-server": "^0.0.1",
+    "vscode-languageclient": "^6.1.3"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "build:watch": "yarn build --watch",
+    "prebuild": "yarn clean",
+    "clean": "rimraf dist/",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "format": "prettier -c src/",
+    "format:fix": "prettier --write src/",
+    "prepush": "yarn lint && yarn format"
+  },
+  "engines": {
+    "vscode": "^1.43.0"
+  },
+  "activationEvents": [
+    "onLanguage:slang-map",
+    "onLanguage:slang-profile"
+  ],
+  "main": "dist/extension",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Superface",
+      "properties": {
+        "superfaceLanguageClient.maxProblems": {
+          "scope": "resource",
+          "type": "number",
+          "default": 100,
+          "description": "Controls the maximum number of problems produced by the server."
+        },
+        "superfaceLanguageClient.trace.server": {
+          "scope": "window",
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Traces the communication between VS Code and the language server."
+        }
+      }
+    },
+    "languages": [
+      {
+        "id": "slang-map",
+        "aliases": [
+          "Superface Map"
+        ],
+        "extensions": [
+          ".map.slang", ".suma"
+        ],
+        "configuration": "syntaxes/language-configuration.json"
+      },
+      {
+        "id": "slang-profile",
+        "aliases": [
+          "Superface Profile"
+        ],
+        "extensions": [
+          ".profile.slang", ".supr"
+        ],
+        "configuration": "syntaxes/language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "slang-map",
+        "scopeName": "source.slang.map",
+        "path": "syntaxes/slang-map.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.expression.jessie.slang.map": "javascript"
+        }
+      }
+    ]
+  }
+}

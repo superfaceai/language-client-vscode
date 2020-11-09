@@ -1,0 +1,10 @@
+.vscode/
+.vscode-test/
+.gitignore
+src/
+.eslintignore
+.eslintrc.js
+.npmrc
+.prettierrc.js
+tsconfig.*
+yarn.lock
