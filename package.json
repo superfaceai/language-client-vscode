@@ -100,6 +100,11 @@
         "embeddedLanguages": {
           "meta.expression.jessie.slang.map": "javascript"
         }
+      },
+      {
+        "language": "slang-profile",
+        "scopeName": "source.slang.profile",
+        "path": "syntaxes/slang-profile.tmLanguage.json"
       }
     ]
   }

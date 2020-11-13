@@ -1,0 +1,275 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "slang-profile",
+  "scopeName": "source.slang.profile",
+  "patterns": [
+    {
+      "include": "#comment"
+    },
+    {
+      "include": "#string"
+    },
+    {
+      "include": "#operator"
+    },
+    {
+      "include": "#usecase-definition"
+    },
+    {
+      "include": "#named-model-definition"
+    },
+    {
+      "include": "#named-field-definition"
+    }
+  ],
+  "repository": {
+    "comment": {
+      "match": "//.*",
+      "name": "comment.line.double-slash.slang.profile",
+      "comment": "line comment"
+    },
+    "boolean": {
+      "match": "\\b(true|false)\\b",
+      "name": "constant.language.slang.profile",
+      "comment": "boolean constant true and false"
+    },
+    "number": {
+      "match": "[-+]?(0x[0-9a-fA-F]+|0o[0-7]+|0b[0-1]+|[0-9]+(\\.[0-9]+)?)",
+      "name": "constant.numeric.slang.profile",
+      "comment": "number literal with an optional sign and radix prefix"
+    },
+    "string-escape": {
+      "match": "\\\\.",
+      "name": "constant.character.escape.slang.profile"
+    },
+    "string": {
+      "patterns": [
+        {
+          "begin": "'''",
+          "end": "'''",
+          "name": "string.quoted.triple.single.slang.profile"
+        },
+        {
+          "begin": "\"\"\"",
+          "end": "\"\"\"",
+          "name": "string.quoted.triple.double.slang.profile"
+        },
+        {
+          "begin": "'",
+          "end": "'",
+          "name": "string.quoted.single.slang.profile",
+          "patterns": [
+            {
+              "include": "#string-escape"
+            }
+          ]
+        },
+        {
+          "begin": "\"",
+          "end": "\"",
+          "name": "string.quoted.double.slang.profile",
+          "patterns": [
+            {
+              "include": "#string-escape"
+            }
+          ]
+        }
+      ],
+      "comment": "single- and triple-quoted string with single or double quotes"
+    },
+    "operator": {
+      "name": "keyword.operator.slang.profile",
+      "match": "(=|,|\\||!)"
+    },
+
+    "field-definition": {
+      "begin": "\\b([a-zA-Z_][a-zA-Z_0-9]*)\\b",
+      "end": "$",
+      "beginCaptures": {
+        "1": { "name": "variable.other.slang.profile" }
+      },
+      "patterns": [
+        { "include": "#operator" },
+        { "include": "#type" }
+      ]
+    },
+
+    "primitive-type": {
+      "match": "\\b(string|boolean|number)\\b",
+      "name": "support.type.primitive.slang.profile"
+    },
+    "object-definition": {
+      "begin": "{",
+      "end": "}",
+      "beginCaptures": {
+        "0": { "name": "punctuation.brace.open.slang.profile" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.brace.close.slang.profile" }
+      },
+      "patterns": [
+        { "include": "#comment" },
+        { "include": "#string" },
+        { "include": "#field-definition" }
+      ]
+    },
+    "enum-definition": {
+      "begin": "\\b(enum)\\s*({)",
+      "end": "}",
+      "beginCaptures": {
+        "1": { "name": "storage.type.enum.slang.profile" },
+        "2": { "name": "punctuation.brace.open.slang.profile" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.brace.close.slang.profile" }
+      },
+      "contentName": "meta.definition.enum.slang.profile",
+      "patterns": [
+        { "include": "#comment" },
+        { "include": "#string" },
+        {
+          "begin": "\\b([a-zA-Z_][a-zA-Z_0-9]*)\\b",
+          "end": "((?=})|,|$)",
+          "beginCaptures": {
+            "1": { "name": "variable.other.enummember" }
+          },
+          "endCaptures": {
+            "1": { "name": "keyword.operator.slang.profile" }
+          },
+          "patterns": [
+            { "include": "#operator" },
+            { "include": "#string" },
+            { "include": "#number" }
+          ]
+        }
+      ]
+    },
+    "list-definition": {
+      "begin": "\\[",
+      "end": "\\]",
+      "beginCaptures": {
+        "0": { "name": "punctuation.bracket.open.slang.profile" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.bracket.close.slang.profile" }
+      },
+      "patterns": [
+        { "include": "#comment" },
+        { "include": "#operator" },
+        { "include": "#type" }
+      ]
+    },
+    "type": {
+      "patterns": [
+        { "include": "#primitive-type" },
+        { "include": "#object-definition" },
+        { "include": "#enum-definition" },
+        { "include": "#list-definition" },
+        {
+          "match": "\\b([a-zA-Z_][a-zA-Z_0-9]*)\\b",
+          "name": "entity.name.type.slang.profile"
+        }
+      ]
+    },
+
+    "usecase-definition": {
+      "begin": "\\b(usecase)\\s+([a-zA-Z_][a-zA-Z_0-9]*)\\s*({)",
+      "end": "}",
+      "beginCaptures": {
+        "1": {
+          "name": "storage.type.usecase.slang.profile"
+        },
+        "2": {
+          "name": "entity.name.type.slang.profile"
+        },
+        "3": {
+          "name": "punctuation.brace.open.slang.profile"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.brace.close.slang.profile"
+        }
+      },
+      "contentName": "meta.definition.usecase.slang.profile",
+      "patterns": [
+        { "include": "#comment" },
+        { "include": "#string" },
+        {
+          "begin": "\\b(input)\\b",
+          "end": "$",
+          "beginCaptures": {
+            "1": { "name": "variable.language.input.slang.profile" }
+          },
+          "patterns": [
+            { "include": "#type" }
+          ]
+        },
+        {
+          "begin": "\\b(result)\\b",
+          "end": "$",
+          "beginCaptures": {
+            "1": { "name": "variable.language.result.slang.profile" }
+          },
+          "patterns": [
+            { "include": "#type" }
+          ]
+        },
+        {
+          "begin": "\\b(async)\\s+(result)\\b",
+          "end": "$",
+          "beginCaptures": {
+            "1": { "name": "variable.language.result.slang.profile" },
+            "2": { "name": "variable.language.result.slang.profile" }
+          },
+          "patterns": [
+            { "include": "#type" }
+          ]
+        },
+        {
+          "begin": "\\b(error)\\b",
+          "end": "$",
+          "beginCaptures": {
+            "1": { "name": "variable.language.result.slang.profile" }
+          },
+          "patterns": [
+            { "include": "#type" }
+          ]
+        }
+      ]
+    },
+    "named-model-definition": {
+      "begin": "\\b(model)\\s+([a-zA-Z_][a-zA-Z_0-9]*)\\b",
+      "end": "$",
+      "beginCaptures": {
+        "1": {
+          "name": "storage.type.model.slang.profile"
+        },
+        "2": {
+          "name": "entity.name.type.slang.profile"
+        }
+      },
+      "contentName": "meta.definition.model.slang.profile",
+      "patterns": [
+        { "include": "#operator" },
+        { "include": "#type" }
+      ]
+    },
+    "named-field-definition": {
+      "begin": "\\b(field)\\s+",
+      "end": "$",
+      "beginCaptures": {
+        "1": {
+          "name": "storage.type.field.slang.profile"
+        },
+        "2": {
+          "name": "variable.other.slang.profile"
+        }
+      },
+      "contentName": "meta.definition.named-field.slang.profile",
+      "patterns": [
+        { "include": "#field-definition" }
+      ]
+    }
+  }
+}

@@ -431,7 +431,7 @@
       "patterns": [
         {
           "match": "[a-zA-Z_][a-zA-Z_0-9]*",
-          "name": "variable.language.http-method.slang.map"
+          "name": "constant.language.http-method.slang.map"
         },
         {
           "include": "#string"
@@ -473,6 +473,9 @@
                     },
                     "2": {
                       "name": "constant.language.security-scheme.slang.map"
+                    },
+                    "3": {
+                      "name": "constant.language.security-scheme.apikey.placement.slang.map"
                     },
                     "4": {
                       "name": "punctuation.brace.open.slang.map"
@@ -543,7 +546,7 @@
                       "end": "(?<=})",
                       "beginCaptures": {
                         "1": {
-                          "name": "keyword.other.slang.map"
+                          "name": "variable.language.query.slang.map"
                         }
                       },
                       "patterns": [
@@ -558,7 +561,7 @@
                       "end": "(?<=})",
                       "beginCaptures": {
                         "1": {
-                          "name": "keyword.other.slang.map"
+                          "name": "variable.language.headers.slang.map"
                         }
                       },
                       "patterns": [
@@ -575,7 +578,7 @@
                           "end": "(?=})",
                           "beginCaptures": {
                             "1": {
-                              "name": "keyword.other.slang.map"
+                              "name": "variable.language.body.slang.map"
                             },
                             "2": {
                               "name": "keyword.operator.slang.map"
@@ -593,7 +596,7 @@
                           "end": "(?<=})",
                           "beginCaptures": {
                             "1": {
-                              "name": "keyword.other.slang.map"
+                              "name": "variable.language.body.slang.map"
                             }
                           },
                           "patterns": [
@@ -702,7 +705,7 @@
       "end": "}",
       "beginCaptures": {
         "1": {
-          "name": "storage.type.map.slang.map"
+          "name": "storage.type.operation.slang.map"
         },
         "2": {
           "name": "entity.name.function.slang.map"
