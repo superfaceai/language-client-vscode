@@ -84,7 +84,7 @@
 
     "field-definition": {
       "begin": "\\b([a-zA-Z_][a-zA-Z_0-9]*)\\b",
-      "end": "$",
+      "end": "((?=})|,|$)",
       "beginCaptures": {
         "1": { "name": "variable.other.slang.profile" }
       },
