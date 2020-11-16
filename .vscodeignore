@@ -8,3 +8,7 @@ src/
 .prettierrc.js
 tsconfig.*
 yarn.lock
+yalc.lock
+TODO.md
+.yalc/
+.github/
