@@ -35,6 +35,6 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./$EXTENSION_OUTPUT
+          asset_path: $EXTENSION_OUTPUT
           asset_name: $EXTENSION_OUTPUT
           asset_content_type: application/zip
