@@ -6,8 +6,6 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    env:
-      EXTENSION_OUTPUT: "superface-language-client-vscode-${GITHUB_REF##*/v}.vsix"
     steps:
       # Checkout project master and setup environment
       - name: Checkout
@@ -28,15 +26,15 @@ jobs:
       - name: Build
         run: yarn build
       - name: Package
-        run: yarn package --out "$EXTENSION_OUTPUT"
+        run: yarn package --out "superface-language-client-vscode-${GITHUB_REF##*/v}.vsix"
       
       # Upload asset to the release
       - name: Upload asset
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: "./$EXTENSION_OUTPUT"
-          asset_name: "$EXTENSION_OUTPUT"
+          asset_path: "./superface-language-client-vscode-${GITHUB_REF##*/v}.vsix"
+          asset_name: "superface-language-client-vscode-${GITHUB_REF##*/v}.vsix"
           asset_content_type: application/zip
       
       
