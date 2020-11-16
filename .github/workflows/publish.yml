@@ -7,7 +7,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     env:
-      EXTENSION_OUTPUT: superface-language-client-vscode-${GITHUB_REF##*/v}.vsix
+      EXTENSION_OUTPUT: superface-language-client-vscode.vsix
     steps:
       # Checkout project master and setup environment
       - name: Checkout
@@ -38,17 +38,3 @@ jobs:
           asset_path: ./$EXTENSION_OUTPUT
           asset_name: $EXTENSION_OUTPUT
           asset_content_type: application/zip
-      
-      
-      # Prepare and publish
-      # - name: Publish Git preparation
-      #   run: |
-      #     echo Publishing as version ${GITHUB_REF##*/v}
-      #     # This is to appease the GIT gods. Yarn cannot publish without a version bump (that would invoke git with empty credentials)
-      #     git config --global user.email "foo@bar.com"
-      #     git config --global user.name "Foo Bar"
-      #     git tag -d  ${GITHUB_REF##*/}
-      # - name: Publish
-      #   run: yarn publish --new-version ${GITHUB_REF##*/v} --verbose
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
