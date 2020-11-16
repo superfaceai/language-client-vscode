@@ -3,12 +3,11 @@ on:
   release:
     types: [created]
 
-env:
-  EXTENSION_OUTPUT: "superface-language-client-vscode-${GITHUB_REF##*/v}.vsix"
-
 jobs:
   publish:
     runs-on: ubuntu-latest
+    env:
+      EXTENSION_OUTPUT: "superface-language-client-vscode-${GITHUB_REF##*/v}.vsix"
     steps:
       # Checkout project master and setup environment
       - name: Checkout
