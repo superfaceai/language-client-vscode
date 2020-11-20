@@ -4,23 +4,9 @@ Extension that provides a client for the Superface Language server and syntax hi
 
 ## Install
 
-To install the package, first create `.npmrc` file in your project root and put the following line into it.
+Download the `.vsix` file from one of the Github releases.
 
-```
-@superfaceai:registry=https://npm.pkg.github.com
-```
-
-Then authenticate to github npm package registry. Use your github name as your login and generate a personal access token with at least the `read:packages` permission in Github to use as password:
-
-```
-npm login --registry=https://npm.pkg.github.com
-```
-
-After doing this, you should be able to install the package by calling:
-
-```
-yarn add @superfaceai/language-client-vscode
-```
+Use your vscode installation to install the extension using `code --install-extension <path-to-vsix>`.
 
 ## Publishing a new version
 
@@ -30,7 +16,7 @@ Package publishing is done through GitHub release functionality.
 
 Use semver for the version tag. It must be in format of `v<major>.<minor>.<patch>`.
 
-TODO: For now no package or vscode extensions are published anywhere.
+The publish CI workflow will build and package the extension and upload it as a release asset.
 
 ## Licensing
 

@@ -9,3 +9,5 @@
       }
     ]
 ```
+
+2. read and respect configuration for language server

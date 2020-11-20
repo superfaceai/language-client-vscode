@@ -81,7 +81,6 @@
           "Superface Map"
         ],
         "extensions": [
-          ".map.slang",
           ".suma"
         ],
         "configuration": "syntaxes/language-configuration.json"
@@ -92,7 +91,6 @@
           "Superface Profile"
         ],
         "extensions": [
-          ".profile.slang",
           ".supr"
         ],
         "configuration": "syntaxes/language-configuration.json"
