@@ -587,6 +587,9 @@
                           "contentName": "meta.expression.jessie.slang.map",
                           "patterns": [
                             {
+                              "include": "#inline-call-statement"
+                            },
+                            {
                               "include": "#jessie"
                             }
                           ]
