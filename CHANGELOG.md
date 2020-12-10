@@ -1,12 +1,12 @@
 ## [Unreleased]
 
-## [v0.0.4] - 2020-12-10
+## [0.0.4] - 2020-12-10
 
 ### Fixed
 * Highlighting of profile usecase safety
 * Highlighting of inline call in http call body slot
 
-## [v0.0.3] - 2020-11-25
+## [0.0.3] - 2020-11-25
 
 ### Changed
 * Language server dependency version
