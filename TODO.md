@@ -1,11 +1,11 @@
-1. Add a `jsonValidation` contribution with the schemas that should be exported from `@superfaceai/language`
+1. Add a `jsonValidation` contribution with the schemas that should be exported from `@superfaceai/spec`?
 
 ```
 ,
     "jsonValidation": [
       {
         "fileMatch": ["*.map.json", "*.profile.json"],
-        "url": "node_modules/@superfaceai/language/TODO"
+        "url": "node_modules/@superfaceai/spec/TODO"
       }
     ]
 ```
