@@ -646,6 +646,9 @@
                   "contentName": "meta.statement.http-call.response.slang.map",
                   "patterns": [
                     {
+                      "include": "#comment"
+                    },
+                    {
                       "include": "#outcome-statement"
                     },
                     {
