@@ -60,26 +60,26 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@superfaceai/ast@^0.1.0":
-  version "0.1.0"
-  resolved "https://npm.pkg.github.com/download/@superfaceai/ast/0.1.0/b97e9a9bf3b369dde42fb5b41c46f064aa3b3e3931f1dc4d81624d92fbe6665e#8fc9702dc7e648f4d88bb3ecd6a5c87a4d6a1aec"
-  integrity sha512-mpvV/OvJF82TysXVyEZmiNAiW95BuPjUY1EM3o5ajR3ZW5URX/csEGJtitGodCkHfjQLO1gdqovS+urDxsLSBQ==
+"@superfaceai/ast@^0.0.20":
+  version "0.0.20"
+  resolved "https://npm.pkg.github.com/download/@superfaceai/ast/0.0.20/957dff9bf72e8a26c1ddf4cf4e82726c47edc9b3d91e3b8d576f7c1e9862a7b7#394e1a92cb14c9c62da41c2cdcd8070653e93f47"
+  integrity sha512-vE6D7SXn72Y3PvvLWTFttyt34FRbQbEUlNUpb3wtn9yQrplEWoOw1rcwmoHaAKemRHGQMEWjTcHE9KKW4ocY8A==
 
-"@superfaceai/language-server@^0.0.6":
-  version "0.0.6"
-  resolved "https://npm.pkg.github.com/download/@superfaceai/language-server/0.0.6/82db7949bcb16233ae0acf9f02538bf9af391962d935f41cdf94d5f22f2837ec#bffd571d84f8be9fb9e7228f3d86336efc6be656"
-  integrity sha512-e/I4Hq5Xdst2Mjos7MySJMSIHSE+Rzlt4+B2OI5jDYE6ahy1hcy4DXCFkXi6c5d/ZS7JmaFvQhotXo/i8guA+w==
+"@superfaceai/language-server@^0.0.7":
+  version "0.0.7"
+  resolved "https://npm.pkg.github.com/download/@superfaceai/language-server/0.0.7/3c8d2a45f438a881f7e7f835282f026fab46a076bafcc2441bbe9f438212e41e#91333f2d88d50b05c320d32a704b9db56821aae1"
+  integrity sha512-FOHO4e/0XwE1aElaIBZS7G6Dma/Bucx3vdeq8xw5Vi9hSW0fCBwIjw2XzVeRm97VBllQpYyokgmwIBW8dsEF5A==
   dependencies:
-    "@superfaceai/parser" "^0.0.9"
+    "@superfaceai/parser" "^0.0.10"
     vscode-languageserver "^6.1.1"
     vscode-languageserver-textdocument "^1.0.1"
 
-"@superfaceai/parser@^0.0.9":
-  version "0.0.9"
-  resolved "https://npm.pkg.github.com/download/@superfaceai/parser/0.0.9/741ee924ff09669ae5275ecd3714a866391eadce989e4f00f53f4ff2cab5dfb8#f747d12ce363de0ff94ffc845372a5b21b185a2f"
-  integrity sha512-Q5p5Fki/1E7h3etT3FYPTVI//3zkmiZyW/Q0XTE/IwxBy8JilGqW5cCD7/ACxzVgZqICECb/CqxyAdVJtBoFdA==
+"@superfaceai/parser@^0.0.10":
+  version "0.0.10"
+  resolved "https://npm.pkg.github.com/download/@superfaceai/parser/0.0.10/09cfac3d21da07d1eacdcad265f3b94ed4afe0e8dc2fe1a9946b9dc4230cd129#032c9ba6126af2441805506d51de96f92aa906c3"
+  integrity sha512-YqcHNqZbjXv0RCn2QgQVnCmzUJYBsQtwKvEDQ1PMG6+WEQU7f0cEwhGJasLj7j4sEnGT94ObEUFxJQUw8IzwzQ==
   dependencies:
-    "@superfaceai/ast" "^0.1.0"
+    "@superfaceai/ast" "^0.0.20"
     typescript "^4.0.2"
 
 "@types/json-schema@^7.0.3":
