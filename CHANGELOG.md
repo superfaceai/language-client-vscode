@@ -1,5 +1,15 @@
 ## [Unreleased]
 
+## [0.0.7] - 2021-02-04
+
+### Added
+* Iteration atom syntax highlighting
+* Iteration atom syntax rule recongnition to call statement and inline call
+
+### Changed
+* Renamed `statement-condition` to `condition-atom`
+* Made some easily recognizable operators include their name in the syntax name identifier
+
 ## [0.0.6] - 2021-01-11
 
 ### Changed
@@ -35,7 +45,8 @@
 ### Added
 * `vsix` file release in github flow
 
-[Unreleased]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.6...HEAD
+[Unreleased]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.7...HEAD
+[0.0.7]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.6...v0.0.7
 [0.0.6]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.3...v0.0.4

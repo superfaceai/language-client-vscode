@@ -137,7 +137,7 @@
         }
       ]
     },
-    "statement-condition": {
+    "condition-atom": {
       "begin": "\\b(if)\\s*(\\()",
       "end": "\\)",
       "beginCaptures": {
@@ -160,10 +160,38 @@
       ],
       "contentName": "meta.expression.jessie.slang.map"
     },
+    "iteration-atom": {
+      "begin": "\\b(foreach)\\s*(\\()\\s*([a-zA-Z_][a-zA-Z_0-9]*)\\s+(of)\\s+",
+      "end": "\\)",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.control.foreach.slang.map"
+        },
+        "2": {
+          "name": "punctuation.paren.open.slang.map"
+        },
+        "3": {
+          "name": "variable.other.slang.map"
+        },
+        "4": {
+          "name": "keyword.operator.of.slang.map"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.paren.close.slang.map"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#jessie"
+        }
+      ],
+      "contentName": "meta.expression.jessie.slang.map"
+    },
     "set-statement-assignment": {
       "begin": "(\\S+.*?)\\s*(=)\\s*",
       "end": "((?=})|;|$)",
-      "name": "DBG",
       "beginCaptures": {
         "1": {
           "name": "variable.other.slang.map",
@@ -177,12 +205,12 @@
           ]
         },
         "2": {
-          "name": "keyword.operator.slang.map"
+          "name": "keyword.operator.equals.slang.map"
         }
       },
       "endCaptures": {
         "1": {
-          "name": "keyword.operator.slang.map"
+          "name": "keyword.operator.semicolon.slang.map"
         }
       },
       "patterns": [
@@ -213,7 +241,7 @@
       },
       "patterns": [
         {
-          "include": "#statement-condition"
+          "include": "#condition-atom"
         },
         {
           "comment": "set statement tail block",
@@ -256,7 +284,7 @@
           "contentName": "meta.statement.outcome.slang.map",
           "patterns": [
             {
-              "include": "#statement-condition"
+              "include": "#condition-atom"
             },
             {
               "include": "#object-literal"
@@ -278,7 +306,7 @@
           "contentName": "meta.statement.outcome.slang.map",
           "patterns": [
             {
-              "include": "#statement-condition"
+              "include": "#condition-atom"
             },
             {
               "include": "#object-literal"
@@ -329,12 +357,12 @@
               ]
             },
             "2": {
-              "name": "keyword.operator.slang.map"
+              "name": "keyword.operator.equals.slang.map"
             }
           },
           "endCaptures": {
             "1": {
-              "name": "keyword.operator.slang.map"
+              "name": "keyword.operator.comma.slang.map"
             }
           },
           "contentName": "meta.expression.jessie.slang.map",
@@ -364,6 +392,12 @@
           "include": "#comment"
         },
         {
+          "include": "#condition-atom"
+        },
+        {
+          "include": "#iteration-atom"
+        },
+        {
           "include": "#call-statement-head"
         }
       ]
@@ -383,7 +417,10 @@
       },
       "patterns": [
         {
-          "include": "#statement-condition"
+          "include": "#condition-atom"
+        },
+        {
+          "include": "#iteration-atom"
         },
         {
           "include": "#call-statement-head"
@@ -496,7 +533,7 @@
                       "end": "(?=})",
                       "beginCaptures": {
                         "2": {
-                          "name": "keyword.operator.slang.map"
+                          "name": "keyword.operator.equals.slang.map"
                         }
                       },
                       "patterns": [
@@ -581,7 +618,7 @@
                               "name": "variable.language.body.slang.map"
                             },
                             "2": {
-                              "name": "keyword.operator.slang.map"
+                              "name": "keyword.operator.equals.slang.map"
                             }
                           },
                           "contentName": "meta.expression.jessie.slang.map",

@@ -60,27 +60,34 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@superfaceai/ast@^0.0.20":
-  version "0.0.20"
-  resolved "https://npm.pkg.github.com/download/@superfaceai/ast/0.0.20/957dff9bf72e8a26c1ddf4cf4e82726c47edc9b3d91e3b8d576f7c1e9862a7b7#394e1a92cb14c9c62da41c2cdcd8070653e93f47"
-  integrity sha512-vE6D7SXn72Y3PvvLWTFttyt34FRbQbEUlNUpb3wtn9yQrplEWoOw1rcwmoHaAKemRHGQMEWjTcHE9KKW4ocY8A==
+"@superfaceai/ast@^0.0.21":
+  version "0.0.21"
+  resolved "https://npm.pkg.github.com/download/@superfaceai/ast/0.0.21/48ebed3cda17c82fb3722a6baf649a4b0d6fdbdb6a349962915f705922e68d4e#0db4167b99a4d84f8f43c7651cca6df930d65f6d"
+  integrity sha512-/jsi46JAIbWc1MG+wk5BcejwVvvCjuHXdzJBlU56rkpEgvGR4IMtlPGKVLmXKTK87EkyXOevOhCuUHQpEcfqSg==
 
-"@superfaceai/language-server@^0.0.7":
-  version "0.0.7"
-  resolved "https://npm.pkg.github.com/download/@superfaceai/language-server/0.0.7/3c8d2a45f438a881f7e7f835282f026fab46a076bafcc2441bbe9f438212e41e#91333f2d88d50b05c320d32a704b9db56821aae1"
-  integrity sha512-FOHO4e/0XwE1aElaIBZS7G6Dma/Bucx3vdeq8xw5Vi9hSW0fCBwIjw2XzVeRm97VBllQpYyokgmwIBW8dsEF5A==
+"@superfaceai/language-server@0.0.8":
+  version "0.0.8"
+  resolved "https://npm.pkg.github.com/download/@superfaceai/language-server/0.0.8/d8e24be1bad5aaaf776728d3b06bd9d666360d04dfefb5104adafe88f9b9d259#77e0be67485bb35a6430ee1fb32ad39bd2172547"
+  integrity sha512-lgYHiSrXRDTE4EFlSVgGxUeohDDbuIy4h6ToKx/777rNyngvwJYQOf83eSdh36jdni9PaVlofq+KjQvBXsCj2Q==
   dependencies:
-    "@superfaceai/parser" "^0.0.10"
+    "@superfaceai/parser" "^0.0.14"
     vscode-languageserver "^6.1.1"
     vscode-languageserver-textdocument "^1.0.1"
 
-"@superfaceai/parser@^0.0.10":
-  version "0.0.10"
-  resolved "https://npm.pkg.github.com/download/@superfaceai/parser/0.0.10/09cfac3d21da07d1eacdcad265f3b94ed4afe0e8dc2fe1a9946b9dc4230cd129#032c9ba6126af2441805506d51de96f92aa906c3"
-  integrity sha512-YqcHNqZbjXv0RCn2QgQVnCmzUJYBsQtwKvEDQ1PMG6+WEQU7f0cEwhGJasLj7j4sEnGT94ObEUFxJQUw8IzwzQ==
+"@superfaceai/parser@^0.0.14":
+  version "0.0.14"
+  resolved "https://npm.pkg.github.com/download/@superfaceai/parser/0.0.14/1f50e337a8cd1c3bad514a0374ad9f4a793aceb07d4fea0be04c376eff01021d#9d9406b8947ef6298a3058433a30397c53f566a0"
+  integrity sha512-Vmqd/REgEr+ShdVe1m8yY8/fcNM0FzaiRweZg5S8G6nyssM0OfCRcLvLy8n2iCAYdR0HkJEjqRCPbHGOT0mQ/g==
   dependencies:
-    "@superfaceai/ast" "^0.0.20"
+    "@superfaceai/ast" "^0.0.21"
+    "@types/debug" "^4.1.5"
+    debug "^4.3.1"
     typescript "^4.0.2"
+
+"@types/debug@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@types/debug/-/debug-4.1.5.tgz#b14efa8852b7768d898906613c23f688713e02cd"
+  integrity sha512-Q1y515GcOdTHgagaVFhHnIFQ38ygs/kmxdNpvpou+raI9UO3YZcHDngBSYKQklcKlvA7iuQlmIKbzvmxcOE9CQ==
 
 "@types/json-schema@^7.0.3":
   version "7.0.6"
@@ -411,6 +418,13 @@ debug@^4.0.1, debug@^4.1.1:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.2.0.tgz#7f150f93920e94c58f5574c2fd01a3110effe7f1"
   integrity sha512-IX2ncY78vDTjZMFUdmsvIRFY2Cf4FnD0wRs+nQwJU8Lu99/tPFdb0VybiiMTPe3I6rQmwsqQqRBvxU+bZ/I8sg==
+  dependencies:
+    ms "2.1.2"
+
+debug@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.1.tgz#f0d229c505e0c6d8c49ac553d1b13dc183f6b2ee"
+  integrity sha512-doEwdvm4PCeK4K3RQN2ZC2BYUBaxwLARCqZmMjtF8a51J2Rb0xpVloFRnCODwqjpwnAoao4pelN8l3RJdv3gRQ==
   dependencies:
     ms "2.1.2"
 
