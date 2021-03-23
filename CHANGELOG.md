@@ -1,5 +1,11 @@
 ## [Unreleased]
 
+## [0.0.8] - 2021-03-23
+
+### Changed
+* Updated to language server v0.0.9
+* Map http call security requirement syntax highlighting
+
 ## [0.0.7] - 2021-02-04
 
 ### Added
@@ -45,7 +51,8 @@
 ### Added
 * `vsix` file release in github flow
 
-[Unreleased]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.7...HEAD
+[Unreleased]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.8...HEAD
+[0.0.7]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.7...v0.0.8
 [0.0.7]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.6...v0.0.7
 [0.0.6]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.4...v0.0.5

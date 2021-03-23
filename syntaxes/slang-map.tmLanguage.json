@@ -491,7 +491,7 @@
               "comment": "http call security scheme",
               "patterns": [
                 {
-                  "match": "\\b(security)\\s+(none|basic|bearer)\\b",
+                  "match": "\\b(security)\\s+(none)\\b",
                   "captures": {
                     "1": {
                       "name": "keyword.other.slang.map"
@@ -502,45 +502,17 @@
                   }
                 },
                 {
-                  "begin": "\\b(security)\\s+(apikey)\\s+(header|query)\\s*({)",
-                  "end": "}",
+                  "begin": "\\b(security)\\s+",
+                  "end": "$",
                   "beginCaptures": {
                     "1": {
                       "name": "keyword.other.slang.map"
-                    },
-                    "2": {
-                      "name": "constant.language.security-scheme.slang.map"
-                    },
-                    "3": {
-                      "name": "constant.language.security-scheme.apikey.placement.slang.map"
-                    },
-                    "4": {
-                      "name": "punctuation.brace.open.slang.map"
                     }
                   },
-                  "endCaptures": {
-                    "0": {
-                      "name": "punctuation.brace.close.slang.map"
-                    }
-                  },
-                  "contentName": "meta.statement.http-call.security.apikey.slang.map",
+                  "contentName": "meta.statement.http-call.security.slang.map",
                   "patterns": [
                     {
-                      "include": "#comment"
-                    },
-                    {
-                      "begin": "\\b(name)\\s+(=)\\s+",
-                      "end": "(?=})",
-                      "beginCaptures": {
-                        "2": {
-                          "name": "keyword.operator.equals.slang.map"
-                        }
-                      },
-                      "patterns": [
-                        {
-                          "include": "#string"
-                        }
-                      ]
+                      "include": "#string"
                     }
                   ]
                 }
