@@ -23,15 +23,15 @@ If you have any question about this project (for example, how to use it) or if y
 Follow these steps:
 
 1. **Fork & Clone** the repository  
-2. **Setup** the Superface CLI
-   - Login to NPM `npm login --scope=@superfaceai --registry=https://npm.pkg.github.com`  
-   - Install Superface with `yarn global add @superfaceai/cli` or `npm install --global @superfaceai/cli`
+2. **Setup** the Superface Vscode Language Client
+   - Login to NPM `npm login --scope=@superfaceai --registry=https://npm.pkg.github.com`
    - Install packages with `yarn install` or `npm install`
-   - Build with `yarn build` or `npm build`
-   - Lint code with `yarn lint:fix` or `npm lint:fix`
-3. **Commit** changes to your own branch by convention. See https://www.conventionalcommits.org/en/v1.0.0/
-4. **Push** your work back up to your fork
-5. Submit a **Pull Request** so that we can review your changes
+   - Build with `yarn build` or `npm run build`
+   - Test by running the included vscode launch task
+3. **Update** [CHANGELOG](CHANGELOG.md). See https://keepachangelog.com/en/1.0.0/
+4. **Commit** changes to your own branch by convention. See https://www.conventionalcommits.org/en/v1.0.0/
+5. **Push** your work back up to your fork  
+6. Submit a **Pull Request** so that we can review your changes
 
 **NOTE: Be sure to merge the latest from "upstream" before making a pull request.**
 
@@ -49,4 +49,4 @@ Help us improve Superface documentation, you can report typos, improve examples.
 
 ## Copyright and Licensing
 
-The Superface CLI open source project is licensed under the [MIT License](LICENSE).
+The Superface vscode language client open source project is licensed under the [MIT License](LICENSE).
