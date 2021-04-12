@@ -19,7 +19,7 @@ Download the `.vsix` file from one of the Github [releases](https://github.com/s
 Install the extension using
 
 ```shell
-conse --install-extension <path-to-vsix>
+code --install-extension <path-to-vsix>
 ```
 
 ## Usage
