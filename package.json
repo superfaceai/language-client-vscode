@@ -5,7 +5,7 @@
   "version": "0.0.8",
   "repository": "https://github.com/superfaceai/language-client-vscode",
   "author": "Superface Team",
-  "publisher": "superface",
+  "publisher": "superfaceai",
   "license": "MIT",
   "files": [
     "dist/**/*",
@@ -40,7 +40,8 @@
     "format": "prettier -c src/",
     "format:fix": "prettier --write src/",
     "prepush": "yarn lint && yarn format",
-    "package": "vsce package --yarn"
+    "package": "vsce package --yarn",
+    "deploy": "vsce publish --yarn"
   },
   "engines": {
     "vscode": "^1.50.0"
