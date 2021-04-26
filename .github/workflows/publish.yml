@@ -13,14 +13,13 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.5
         with:
-          registry-url: "https://npm.pkg.github.com"
+          registry-url: https://registry.npmjs.org/
           scope: "@superfaceai"
+          node-version: "14"
 
       # Install dependencies and run test
       - name: Install dependencies
         run: yarn install
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.SUPERFACE_BOT_PAT }}
 
       # Build and package
       - name: Build
