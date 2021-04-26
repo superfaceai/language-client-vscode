@@ -6,37 +6,38 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    env:
-      EXTENSION_OUTPUT: superface-language-client-vscode.vsix
     steps:
       # Checkout project master and setup environment
       - name: Checkout
         uses: actions/checkout@v2.3.4
       - name: Setup Node.js environment
-        uses: actions/setup-node@v1.4.4
+        uses: actions/setup-node@v2.1.5
         with:
-          registry-url: "https://npm.pkg.github.com"
+          registry-url: https://registry.npmjs.org/
           scope: "@superfaceai"
+          node-version: "14"
 
       # Install dependencies and run test
       - name: Install dependencies
         run: yarn install
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.SUPERFACE_BOT_PAT }}
 
       # Build and package
       - name: Build
         run: yarn build
+
       - name: Package
         run: yarn package --out ./superface-language-client-vscode.vsix
       
       # Upload asset to the release
       - name: Upload asset
-        uses: actions/upload-release-asset@v1
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ./superface-language-client-vscode.vsix
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./superface-language-client-vscode.vsix
-          asset_name: superface-language-client-vscode.vsix
-          asset_content_type: application/zip
+
+      # Deploy to microsoft store
+      - name: Publish to Microsoft Extension Marketplace
+        run: yarn deploy --packagePath ./superface-language-client-vscode.vsix
+        env:
+          VSCE_PAT: ${{ secrets.VSCODE_MARKETPLACE_PAT }}

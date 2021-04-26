@@ -2,10 +2,10 @@
   "name": "superface-language-client-vscode",
   "displayName": "Superface Language Client",
   "description": "Superface Language Client for VSCode",
-  "version": "0.0.8",
+  "version": "0.0.11",
   "repository": "https://github.com/superfaceai/language-client-vscode",
   "author": "Superface Team",
-  "publisher": "superface",
+  "publisher": "superfaceai",
   "license": "MIT",
   "files": [
     "dist/**/*",
@@ -13,7 +13,7 @@
   ],
   "devDependencies": {
     "@types/node": "^14.14.6",
-    "@types/vscode": "1.50.0",
+    "@types/vscode": "1.52.0",
     "@typescript-eslint/eslint-plugin": "^4.6.0",
     "@typescript-eslint/parser": "^4.6.0",
     "eslint": "^7.12.1",
@@ -24,11 +24,11 @@
     "prettier": "^2.1.2",
     "rimraf": "^3.0.2",
     "typescript": "^4.0.5",
-    "vsce": "^1.81.1"
+    "vsce": "^1.87"
   },
   "dependencies": {
-    "@superfaceai/language-server": "0.0.9",
-    "vscode-languageclient": "^6.1.3"
+    "@superfaceai/language-server": "0.0.11",
+    "vscode-languageclient": "^7"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -40,10 +40,11 @@
     "format": "prettier -c src/",
     "format:fix": "prettier --write src/",
     "prepush": "yarn lint && yarn format",
-    "package": "vsce package --yarn"
+    "package": "vsce package --yarn",
+    "deploy": "vsce publish --yarn"
   },
   "engines": {
-    "vscode": "^1.50.0"
+    "vscode": "^1.52.0"
   },
   "activationEvents": [
     "onLanguage:slang-map",
