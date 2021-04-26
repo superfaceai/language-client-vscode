@@ -1,5 +1,10 @@
 ## [Unreleased]
 
+## [0.0.11] - 2021-04-26
+
+### Changed
+* Publish to npm
+
 ## [0.0.8] - 2021-03-23
 
 ### Changed
@@ -51,8 +56,9 @@
 ### Added
 * `vsix` file release in github flow
 
-[Unreleased]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.8...HEAD
-[0.0.7]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.7...v0.0.8
+[Unreleased]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.11...HEAD
+[0.0.11]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.8...v0.0.11
+[0.0.8]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.7...v0.0.8
 [0.0.7]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.6...v0.0.7
 [0.0.6]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.4...v0.0.5
