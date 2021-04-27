@@ -7,7 +7,6 @@ Extension that provides a client for the Superface Language server and syntax hi
 - [Install](#install)
 - [Usage](#usage)
 - [Development](#development)
-- [Publishing](#publishing)
 - [Maintainers](#maintainers)
 - [Contributing](#contributing)
 - [License](#license)
@@ -44,16 +43,6 @@ The `package.json` also contains scripts (runnable by calling `yarn <script-name
 - `package` - package the built output into a vsix extension
 
 To install the extension from a local build, execute the `build` script, then the `package` script and then [install](#install) the generated vsix artifact.
-
-## Publishing
-
-Package publishing is done through GitHub release functionality.
-
-[Draft a new release](https://github.com/superfaceai/language-client-vscode/releases/new) to publish a new version of the package.
-
-Use semver for the version tag. It must be in format of `v<major>.<minor>.<patch>`.
-
-The publish CI workflow will build and package the extension and upload it as a release asset. It will be available in the [releases](https://github.com/superfaceai/language-client-vscode/releases) section.
 
 ## Maintainers
 
