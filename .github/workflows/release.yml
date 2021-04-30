@@ -65,11 +65,19 @@ jobs:
       - name: Package extension
         run: yarn package --out ./superface-language-client-vscode-${NEW_VERSION}.vsix
 
-      # Deploy to Microsoft store
+      # Deploy to Microsoft store - only if we are releasing non-beta version
       - name: Publish to Microsoft Extension Marketplace
+        if: startsWith(github.event.inputs.release-level, 'pre') != true
         run: yarn deploy --packagePath ./superface-language-client-vscode-${NEW_VERSION}.vsix
         env:
           VSCE_PAT: ${{ secrets.VSCODE_MARKETPLACE_PAT }}
+      
+      # Deploy to open-vsx store - only if we are releasing non-beta version
+      - name: Publish to Open VSX Registry
+        if: startsWith(github.event.inputs.release-level, 'pre') != true
+        run: yarn deploy:ovsx ./superface-language-client-vscode-${NEW_VERSION}.vsix
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_MARKETPLACE_PAT }}
 
       # Push changes to origin
       - name: Push changes to repository
