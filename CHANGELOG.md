@@ -7,66 +7,59 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.12] - 2021-06-08
 ### Changed
-* Updated language-server to v0.0.12
+- Updated language-server to v0.0.12
 
 ## [0.0.11] - 2021-04-26
-
 ### Changed
-* Publish to npm
+- Publish to npm
 
 ## [0.0.8] - 2021-03-23
-
 ### Changed
-* Updated to language server v0.0.9
-* Map http call security requirement syntax highlighting
+- Updated to language server v0.0.9
+- Map http call security requirement syntax highlighting
 
 ## [0.0.7] - 2021-02-04
-
 ### Added
-* Iteration atom syntax highlighting
-* Iteration atom syntax rule recongnition to call statement and inline call
+- Iteration atom syntax highlighting
+- Iteration atom syntax rule recongnition to call statement and inline call
 
 ### Changed
-* Renamed `statement-condition` to `condition-atom`
-* Made some easily recognizable operators include their name in the syntax name identifier
+- Renamed `statement-condition` to `condition-atom`
+- Made some easily recognizable operators include their name in the syntax name identifier
 
 ## [0.0.6] - 2021-01-11
-
 ### Changed
-* Updated to language server v0.0.7
+- Updated to language server v0.0.7
 
 ## [0.0.5] - 2021-01-09
-
 ### Changed
-* Updated to language server v0.0.6
+- Updated to language server v0.0.6
 
 ### Fixed
-* Map http call response comment syntax highlighting
+- Map http call response comment syntax highlighting
 
 ## [0.0.4] - 2020-12-10
-
 ### Fixed
-* Highlighting of profile usecase safety
-* Highlighting of inline call in http call body slot
+- Highlighting of profile usecase safety
+- Highlighting of inline call in http call body slot
 
 ## [0.0.3] - 2020-11-25
-
 ### Changed
-* Language server dependency version
-* `.vscodeignore` with and files packaged in the extension
+- Language server dependency version
+- `.vscodeignore` with and files packaged in the extension
 
 ## [0.0.2] - 2020-11-20
-
 ### Removed
-* `.map.slang` and `.profile.slang` file associations
+- `.map.slang` and `.profile.slang` file associations
 
-## [0.0.1-test10] - 2020-11-16
-
+## 0.0.1-test10 - 2020-11-16
 ### Added
-* `vsix` file release in github flow
+- `vsix` file release in github flow
 
-[Unreleased]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.11...HEAD
+[Unreleased]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.12...HEAD
+[0.0.12]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.11...v0.0.12
 [0.0.11]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.8...v0.0.11
 [0.0.8]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.7...v0.0.8
 [0.0.7]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.6...v0.0.7
@@ -75,4 +68,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [0.0.4]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/superfaceai/language-client-vscode/compare/v0.0.1-test10...v0.0.2
-[0.0.1-test10]: https://github.com/superfaceai/language-client-vscode/releases/tag/v0.0.1-test10
