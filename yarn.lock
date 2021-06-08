@@ -59,26 +59,26 @@
     "@nodelib/fs.scandir" "2.1.4"
     fastq "^1.6.0"
 
-"@superfaceai/ast@0.0.23-beta.3":
-  version "0.0.23-beta.3"
-  resolved "https://registry.yarnpkg.com/@superfaceai/ast/-/ast-0.0.23-beta.3.tgz#e6fc32001739745154d71f7963eceabebe4a171f"
-  integrity sha512-nUzO9SZoM1uH74to2uL9Oi7rVU7f+NQezUnR7ZmopIkDYeftoQQKPF8YdYjM0lILiBe40klKWQeAiiI2KQ+FIw==
+"@superfaceai/ast@0.0.23":
+  version "0.0.23"
+  resolved "https://registry.yarnpkg.com/@superfaceai/ast/-/ast-0.0.23.tgz#0e58a76b45c0a2dadc72499001d32d0c37cf4128"
+  integrity sha512-9SKqJmC/g8caDZ9T4RcWm43D4f/UFCX57nX8a1J9dM0/GRtMq1fsPt+qcEmCTyys2Gt9JGzH8MDCBym2F92MBg==
 
-"@superfaceai/language-server@0.0.11":
-  version "0.0.11"
-  resolved "https://registry.yarnpkg.com/@superfaceai/language-server/-/language-server-0.0.11.tgz#2a4e49c9d7affb7317f8dd6f4b7da5b5de9275fb"
-  integrity sha512-qus4TIxmKQHXAJxd7WHUANwS4Vpe8UUyhyU1BudEfO/Ld+gitAQbe4p6Nj18WFKZPbO9Cei2U6GTU7tsvMKyhw==
+"@superfaceai/language-server@0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@superfaceai/language-server/-/language-server-0.0.12.tgz#6a406c9088392303268c88d1484e2d6ec3c2a51a"
+  integrity sha512-VPO94VIpgfBiUjFzWgnXYj1/hUT47934X8x8tqk1my27Uv5HQjR+zt+NjI0vEonpu97EDOyZom0jNQ4pPk2q7Q==
   dependencies:
-    "@superfaceai/parser" "^0.0.16"
+    "@superfaceai/parser" "0.0.18"
     vscode-languageserver "^7"
     vscode-languageserver-textdocument "^1.0.1"
 
-"@superfaceai/parser@^0.0.16":
-  version "0.0.16"
-  resolved "https://registry.yarnpkg.com/@superfaceai/parser/-/parser-0.0.16.tgz#7eecf80c3f65470e9824c2dc5a88e64fe334bbc0"
-  integrity sha512-YDNLG4axXh910dAKq3aesQjLQSjx9kv+Y/G3T70TCaYPuDMKNoSMTMBwUBnDkbROSBlhcIh47R4sM0x4xJAadw==
+"@superfaceai/parser@0.0.18":
+  version "0.0.18"
+  resolved "https://registry.yarnpkg.com/@superfaceai/parser/-/parser-0.0.18.tgz#2471f4fb78b78a91e064feaabcee8cfb7a7df044"
+  integrity sha512-5zspVtER7fYA2C5eR1Q6UwrKteV+cGg3IT66e8DHovRzRaojAH8F9u6siuzfvD/jGaiQw4yI6racqbgcHw0a7g==
   dependencies:
-    "@superfaceai/ast" "0.0.23-beta.3"
+    "@superfaceai/ast" "0.0.23"
     "@types/debug" "^4.1.5"
     debug "^4.3.1"
     typescript "~4.1"
