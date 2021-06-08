@@ -41,7 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 * Updated to language server v0.0.6
 
-### Fix
+### Fixed
 * Map http call response comment syntax highlighting
 
 ## [0.0.4] - 2020-12-10
