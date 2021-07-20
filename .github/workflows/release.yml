@@ -94,5 +94,6 @@ jobs:
           tag_name: ${{ env.NEW_VERSION }}
           body: ${{ steps.get-changelog.outputs.changelog }}
           files: ./superface-language-client-vscode-${{ env.NEW_VERSION }}.vsix
+          prerelease: ${{ startsWith(github.event.inputs.release-level, 'pre') }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
