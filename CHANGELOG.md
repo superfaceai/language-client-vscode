@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Added profile and map snippets
+
+### Changed
+- Updated language-server to v0.0.13
+- Renamed `slang` to `comlink`
+
 ## [0.0.12] - 2021-06-08
 ### Changed
 - Updated language-server to v0.0.12

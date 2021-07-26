@@ -27,7 +27,7 @@
     "vsce": "^1.87"
   },
   "dependencies": {
-    "@superfaceai/language-server": "0.0.12",
+    "@superfaceai/language-server": "0.0.13",
     "vscode-languageclient": "^7"
   },
   "scripts": {
@@ -79,6 +79,7 @@
       {
         "id": "comlink-map",
         "aliases": [
+          "Comlink Map",
           "Superface Map"
         ],
         "extensions": [
@@ -89,6 +90,7 @@
       {
         "id": "comlink-profile",
         "aliases": [
+          "Comlink Profile",
           "Superface Profile"
         ],
         "extensions": [
@@ -110,6 +112,16 @@
         "language": "comlink-profile",
         "scopeName": "source.comlink.profile",
         "path": "syntaxes/comlink-profile.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "comlink-map",
+        "path": "snippets/comlink-map.snippets.json"
+      },
+      {
+        "language": "comlink-profile",
+        "path": "snippets/comlink-profile.snippets.json"
       }
     ]
   }
