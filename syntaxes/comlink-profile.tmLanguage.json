@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-  "name": "slang-profile",
-  "scopeName": "source.slang.profile",
+  "name": "comlink-profile",
+  "scopeName": "source.comlink.profile",
   "patterns": [
     {
       "include": "#comment"
@@ -25,39 +25,39 @@
   "repository": {
     "comment": {
       "match": "//.*",
-      "name": "comment.line.double-slash.slang.profile",
+      "name": "comment.line.double-slash.comlink.profile",
       "comment": "line comment"
     },
     "boolean": {
       "match": "\\b(true|false)\\b",
-      "name": "constant.language.slang.profile",
+      "name": "constant.language.comlink.profile",
       "comment": "boolean constant true and false"
     },
     "number": {
       "match": "[-+]?(0x[0-9a-fA-F]+|0o[0-7]+|0b[0-1]+|[0-9]+(\\.[0-9]+)?)",
-      "name": "constant.numeric.slang.profile",
+      "name": "constant.numeric.comlink.profile",
       "comment": "number literal with an optional sign and radix prefix"
     },
     "string-escape": {
       "match": "\\\\.",
-      "name": "constant.character.escape.slang.profile"
+      "name": "constant.character.escape.comlink.profile"
     },
     "string": {
       "patterns": [
         {
           "begin": "'''",
           "end": "'''",
-          "name": "string.quoted.triple.single.slang.profile"
+          "name": "string.quoted.triple.single.comlink.profile"
         },
         {
           "begin": "\"\"\"",
           "end": "\"\"\"",
-          "name": "string.quoted.triple.double.slang.profile"
+          "name": "string.quoted.triple.double.comlink.profile"
         },
         {
           "begin": "'",
           "end": "'",
-          "name": "string.quoted.single.slang.profile",
+          "name": "string.quoted.single.comlink.profile",
           "patterns": [
             {
               "include": "#string-escape"
@@ -67,7 +67,7 @@
         {
           "begin": "\"",
           "end": "\"",
-          "name": "string.quoted.double.slang.profile",
+          "name": "string.quoted.double.comlink.profile",
           "patterns": [
             {
               "include": "#string-escape"
@@ -78,7 +78,7 @@
       "comment": "single- and triple-quoted string with single or double quotes"
     },
     "operator": {
-      "name": "keyword.operator.slang.profile",
+      "name": "keyword.operator.comlink.profile",
       "match": "(=|,|\\||!)"
     },
 
@@ -86,7 +86,7 @@
       "begin": "\\b([a-zA-Z_][a-zA-Z_0-9]*)\\b",
       "end": "((?=})|,|$)",
       "beginCaptures": {
-        "1": { "name": "variable.other.slang.profile" }
+        "1": { "name": "variable.other.comlink.profile" }
       },
       "patterns": [
         { "include": "#operator" },
@@ -96,16 +96,16 @@
 
     "primitive-type": {
       "match": "\\b(string|boolean|number)\\b",
-      "name": "support.type.primitive.slang.profile"
+      "name": "support.type.primitive.comlink.profile"
     },
     "object-definition": {
       "begin": "{",
       "end": "}",
       "beginCaptures": {
-        "0": { "name": "punctuation.brace.open.slang.profile" }
+        "0": { "name": "punctuation.brace.open.comlink.profile" }
       },
       "endCaptures": {
-        "0": { "name": "punctuation.brace.close.slang.profile" }
+        "0": { "name": "punctuation.brace.close.comlink.profile" }
       },
       "patterns": [
         { "include": "#comment" },
@@ -117,13 +117,13 @@
       "begin": "\\b(enum)\\s*({)",
       "end": "}",
       "beginCaptures": {
-        "1": { "name": "storage.type.enum.slang.profile" },
-        "2": { "name": "punctuation.brace.open.slang.profile" }
+        "1": { "name": "storage.type.enum.comlink.profile" },
+        "2": { "name": "punctuation.brace.open.comlink.profile" }
       },
       "endCaptures": {
-        "0": { "name": "punctuation.brace.close.slang.profile" }
+        "0": { "name": "punctuation.brace.close.comlink.profile" }
       },
-      "contentName": "meta.definition.enum.slang.profile",
+      "contentName": "meta.definition.enum.comlink.profile",
       "patterns": [
         { "include": "#comment" },
         { "include": "#string" },
@@ -134,7 +134,7 @@
             "1": { "name": "variable.other.enummember" }
           },
           "endCaptures": {
-            "1": { "name": "keyword.operator.slang.profile" }
+            "1": { "name": "keyword.operator.comlink.profile" }
           },
           "patterns": [
             { "include": "#operator" },
@@ -148,10 +148,10 @@
       "begin": "\\[",
       "end": "\\]",
       "beginCaptures": {
-        "0": { "name": "punctuation.bracket.open.slang.profile" }
+        "0": { "name": "punctuation.bracket.open.comlink.profile" }
       },
       "endCaptures": {
-        "0": { "name": "punctuation.bracket.close.slang.profile" }
+        "0": { "name": "punctuation.bracket.close.comlink.profile" }
       },
       "patterns": [
         { "include": "#comment" },
@@ -167,7 +167,7 @@
         { "include": "#list-definition" },
         {
           "match": "\\b([a-zA-Z_][a-zA-Z_0-9]*)\\b",
-          "name": "entity.name.type.slang.profile"
+          "name": "entity.name.type.comlink.profile"
         }
       ]
     },
@@ -177,24 +177,24 @@
       "end": "}",
       "beginCaptures": {
         "1": {
-          "name": "storage.type.usecase.slang.profile"
+          "name": "storage.type.usecase.comlink.profile"
         },
         "2": {
-          "name": "entity.name.type.slang.profile"
+          "name": "entity.name.type.comlink.profile"
         },
         "3": {
-          "name": "storage.modifier.safety.slang.profile"
+          "name": "storage.modifier.safety.comlink.profile"
         },
         "4": {
-          "name": "punctuation.brace.open.slang.profile"
+          "name": "punctuation.brace.open.comlink.profile"
         }
       },
       "endCaptures": {
         "0": {
-          "name": "punctuation.brace.close.slang.profile"
+          "name": "punctuation.brace.close.comlink.profile"
         }
       },
-      "contentName": "meta.definition.usecase.slang.profile",
+      "contentName": "meta.definition.usecase.comlink.profile",
       "patterns": [
         { "include": "#comment" },
         { "include": "#string" },
@@ -202,7 +202,7 @@
           "begin": "\\b(input)\\b",
           "end": "$",
           "beginCaptures": {
-            "1": { "name": "variable.language.input.slang.profile" }
+            "1": { "name": "variable.language.input.comlink.profile" }
           },
           "patterns": [
             { "include": "#type" }
@@ -212,7 +212,7 @@
           "begin": "\\b(result)\\b",
           "end": "$",
           "beginCaptures": {
-            "1": { "name": "variable.language.result.slang.profile" }
+            "1": { "name": "variable.language.result.comlink.profile" }
           },
           "patterns": [
             { "include": "#type" }
@@ -222,8 +222,8 @@
           "begin": "\\b(async)\\s+(result)\\b",
           "end": "$",
           "beginCaptures": {
-            "1": { "name": "variable.language.result.slang.profile" },
-            "2": { "name": "variable.language.result.slang.profile" }
+            "1": { "name": "variable.language.result.comlink.profile" },
+            "2": { "name": "variable.language.result.comlink.profile" }
           },
           "patterns": [
             { "include": "#type" }
@@ -233,7 +233,7 @@
           "begin": "\\b(error)\\b",
           "end": "$",
           "beginCaptures": {
-            "1": { "name": "variable.language.result.slang.profile" }
+            "1": { "name": "variable.language.result.comlink.profile" }
           },
           "patterns": [
             { "include": "#type" }
@@ -246,13 +246,13 @@
       "end": "$",
       "beginCaptures": {
         "1": {
-          "name": "storage.type.model.slang.profile"
+          "name": "storage.type.model.comlink.profile"
         },
         "2": {
-          "name": "entity.name.type.slang.profile"
+          "name": "entity.name.type.comlink.profile"
         }
       },
-      "contentName": "meta.definition.model.slang.profile",
+      "contentName": "meta.definition.model.comlink.profile",
       "patterns": [
         { "include": "#operator" },
         { "include": "#type" }
@@ -263,13 +263,13 @@
       "end": "$",
       "beginCaptures": {
         "1": {
-          "name": "storage.type.field.slang.profile"
+          "name": "storage.type.field.comlink.profile"
         },
         "2": {
-          "name": "variable.other.slang.profile"
+          "name": "variable.other.comlink.profile"
         }
       },
-      "contentName": "meta.definition.named-field.slang.profile",
+      "contentName": "meta.definition.named-field.comlink.profile",
       "patterns": [
         { "include": "#field-definition" }
       ]

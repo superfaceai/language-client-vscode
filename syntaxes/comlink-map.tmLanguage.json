@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-  "name": "slang-map",
-  "scopeName": "source.slang.map",
+  "name": "comlink-map",
+  "scopeName": "source.comlink.map",
   "patterns": [
     {
       "include": "#comment"
@@ -22,39 +22,39 @@
   "repository": {
     "comment": {
       "match": "//.*",
-      "name": "comment.line.double-slash.slang.map",
+      "name": "comment.line.double-slash.comlink.map",
       "comment": "line comment"
     },
     "boolean": {
       "match": "\\b(true|false)\\b",
-      "name": "constant.language.slang.map",
+      "name": "constant.language.comlink.map",
       "comment": "boolean constant true and false"
     },
     "number": {
       "match": "[-+]?(0x[0-9a-fA-F]+|0o[0-7]+|0b[0-1]+|[0-9]+(\\.[0-9]+)?)",
-      "name": "constant.numeric.slang.map",
+      "name": "constant.numeric.comlink.map",
       "comment": "number literal with an optional sign and radix prefix"
     },
     "string-escape": {
       "match": "\\\\.",
-      "name": "constant.character.escape.slang.map"
+      "name": "constant.character.escape.comlink.map"
     },
     "string": {
       "patterns": [
         {
           "begin": "'''",
           "end": "'''",
-          "name": "string.quoted.triple.single.slang.map"
+          "name": "string.quoted.triple.single.comlink.map"
         },
         {
           "begin": "\"\"\"",
           "end": "\"\"\"",
-          "name": "string.quoted.triple.double.slang.map"
+          "name": "string.quoted.triple.double.comlink.map"
         },
         {
           "begin": "'",
           "end": "'",
-          "name": "string.quoted.single.slang.map",
+          "name": "string.quoted.single.comlink.map",
           "patterns": [
             {
               "include": "#string-escape"
@@ -64,7 +64,7 @@
         {
           "begin": "\"",
           "end": "\"",
-          "name": "string.quoted.double.slang.map",
+          "name": "string.quoted.double.comlink.map",
           "patterns": [
             {
               "include": "#string-escape"
@@ -75,7 +75,7 @@
       "comment": "single- and triple-quoted string with single or double quotes"
     },
     "operator": {
-      "name": "keyword.operator.slang.map",
+      "name": "keyword.operator.comlink.map",
       "match": "(=|,|;|\\.)"
     },
     "identifier": {
@@ -90,15 +90,15 @@
       "end": "}",
       "beginCaptures": {
         "0": {
-          "name": "punctuation.brace.open.slang.map"
+          "name": "punctuation.brace.open.comlink.map"
         }
       },
       "endCaptures": {
         "0": {
-          "name": "punctuation.brace.close.slang.map"
+          "name": "punctuation.brace.close.comlink.map"
         }
       },
-      "contentName": "meta.expression.object-literal.slang.map",
+      "contentName": "meta.expression.object-literal.comlink.map",
       "patterns": [
         {
           "include": "#comment"
@@ -109,7 +109,7 @@
           "end": "((?=})|,|$)",
           "beginCaptures": {
             "1": {
-              "name": "variable.other.slang.map",
+              "name": "variable.other.comlink.map",
               "patterns": [
                 {
                   "include": "#string"
@@ -120,12 +120,12 @@
               ]
             },
             "2": {
-              "name": "keyword.operator.slang.map"
+              "name": "keyword.operator.comlink.map"
             }
           },
           "endCaptures": {
             "1": {
-              "name": "keyword.operator.slang.map"
+              "name": "keyword.operator.comlink.map"
             }
           },
           "patterns": [
@@ -133,7 +133,7 @@
               "include": "#jessie"
             }
           ],
-          "contentName": "meta.expression.jessie.slang.map"
+          "contentName": "meta.expression.jessie.comlink.map"
         }
       ]
     },
@@ -142,15 +142,15 @@
       "end": "\\)",
       "beginCaptures": {
         "1": {
-          "name": "keyword.control.if.slang.map"
+          "name": "keyword.control.if.comlink.map"
         },
         "2": {
-          "name": "punctuation.paren.open.slang.map"
+          "name": "punctuation.paren.open.comlink.map"
         }
       },
       "endCaptures": {
         "0": {
-          "name": "punctuation.paren.close.slang.map"
+          "name": "punctuation.paren.close.comlink.map"
         }
       },
       "patterns": [
@@ -158,28 +158,28 @@
           "include": "#jessie"
         }
       ],
-      "contentName": "meta.expression.jessie.slang.map"
+      "contentName": "meta.expression.jessie.comlink.map"
     },
     "iteration-atom": {
       "begin": "\\b(foreach)\\s*(\\()\\s*([a-zA-Z_][a-zA-Z_0-9]*)\\s+(of)\\s+",
       "end": "\\)",
       "beginCaptures": {
         "1": {
-          "name": "keyword.control.foreach.slang.map"
+          "name": "keyword.control.foreach.comlink.map"
         },
         "2": {
-          "name": "punctuation.paren.open.slang.map"
+          "name": "punctuation.paren.open.comlink.map"
         },
         "3": {
-          "name": "variable.other.slang.map"
+          "name": "variable.other.comlink.map"
         },
         "4": {
-          "name": "keyword.operator.of.slang.map"
+          "name": "keyword.operator.of.comlink.map"
         }
       },
       "endCaptures": {
         "0": {
-          "name": "punctuation.paren.close.slang.map"
+          "name": "punctuation.paren.close.comlink.map"
         }
       },
       "patterns": [
@@ -187,14 +187,14 @@
           "include": "#jessie"
         }
       ],
-      "contentName": "meta.expression.jessie.slang.map"
+      "contentName": "meta.expression.jessie.comlink.map"
     },
     "set-statement-assignment": {
       "begin": "(\\S+.*?)\\s*(=)\\s*",
       "end": "((?=})|;|$)",
       "beginCaptures": {
         "1": {
-          "name": "variable.other.slang.map",
+          "name": "variable.other.comlink.map",
           "patterns": [
             {
               "include": "#string"
@@ -205,12 +205,12 @@
           ]
         },
         "2": {
-          "name": "keyword.operator.equals.slang.map"
+          "name": "keyword.operator.equals.comlink.map"
         }
       },
       "endCaptures": {
         "1": {
-          "name": "keyword.operator.semicolon.slang.map"
+          "name": "keyword.operator.semicolon.comlink.map"
         }
       },
       "patterns": [
@@ -221,7 +221,7 @@
           "include": "#jessie"
         }
       ],
-      "contentName": "meta.expression.jessie.slang.map"
+      "contentName": "meta.expression.jessie.comlink.map"
     },
     "inline-set-statement": {
       "include": "#set-statement-assignment"
@@ -231,12 +231,12 @@
       "end": "}",
       "beginCaptures": {
         "1": {
-          "name": "keyword.operator.set.slang.map"
+          "name": "keyword.operator.set.comlink.map"
         }
       },
       "endCaptures": {
         "0": {
-          "name": "punctuation.brace.close.slang.map"
+          "name": "punctuation.brace.close.comlink.map"
         }
       },
       "patterns": [
@@ -249,10 +249,10 @@
           "end": "(?=})",
           "beginCaptures": {
             "0": {
-              "name": "punctuation.brace.open.slang.map"
+              "name": "punctuation.brace.open.comlink.map"
             }
           },
-          "contentName": "meta.statement.set.slang.map",
+          "contentName": "meta.statement.set.comlink.map",
           "patterns": [
             {
               "include": "#comment"
@@ -272,16 +272,16 @@
           "end": "($)",
           "beginCaptures": {
             "1": {
-              "name": "keyword.control.return.slang.map"
+              "name": "keyword.control.return.comlink.map"
             },
             "2": {
-              "name": "keyword.operator.map.slang.map"
+              "name": "keyword.operator.map.comlink.map"
             },
             "3": {
-              "name": "variable.language.outcome-target.slang.map"
+              "name": "variable.language.outcome-target.comlink.map"
             }
           },
-          "contentName": "meta.statement.outcome.slang.map",
+          "contentName": "meta.statement.outcome.comlink.map",
           "patterns": [
             {
               "include": "#condition-atom"
@@ -300,10 +300,10 @@
           "end": "($)",
           "beginCaptures": {
             "1": {
-              "name": "keyword.control.return.slang.map"
+              "name": "keyword.control.return.comlink.map"
             }
           },
-          "contentName": "meta.statement.outcome.slang.map",
+          "contentName": "meta.statement.outcome.comlink.map",
           "patterns": [
             {
               "include": "#condition-atom"
@@ -324,18 +324,18 @@
       "end": "\\)",
       "beginCaptures": {
         "1": {
-          "name": "entity.name.function.slang.map"
+          "name": "entity.name.function.comlink.map"
         },
         "2": {
-          "name": "punctuation.paren.open.slang.map"
+          "name": "punctuation.paren.open.comlink.map"
         }
       },
       "endCaptures": {
         "0": {
-          "name": "punctuation.paren.close.slang.map"
+          "name": "punctuation.paren.close.comlink.map"
         }
       },
-      "contentName": "meta.statement.call.arguments.slang.map",
+      "contentName": "meta.statement.call.arguments.comlink.map",
       "patterns": [
         {
           "include": "#comment"
@@ -346,7 +346,7 @@
           "end": "((?=\\))|,|$)",
           "beginCaptures": {
             "1": {
-              "name": "variable.other.slang.map",
+              "name": "variable.other.comlink.map",
               "patterns": [
                 {
                   "include": "#string"
@@ -357,15 +357,15 @@
               ]
             },
             "2": {
-              "name": "keyword.operator.equals.slang.map"
+              "name": "keyword.operator.equals.comlink.map"
             }
           },
           "endCaptures": {
             "1": {
-              "name": "keyword.operator.comma.slang.map"
+              "name": "keyword.operator.comma.comlink.map"
             }
           },
-          "contentName": "meta.expression.jessie.slang.map",
+          "contentName": "meta.expression.jessie.comlink.map",
           "patterns": [
             {
               "include": "#jessie"
@@ -379,12 +379,12 @@
       "end": "(?<=\\))",
       "beginCaptures": {
         "1": {
-          "name": "keyword.operator.call.slang.map"
+          "name": "keyword.operator.call.comlink.map"
         }
       },
       "endCaptures": {
         "0": {
-          "name": "punctuation.paren.close.slang.map"
+          "name": "punctuation.paren.close.comlink.map"
         }
       },
       "patterns": [
@@ -407,12 +407,12 @@
       "end": "}",
       "beginCaptures": {
         "1": {
-          "name": "keyword.operator.call.slang.map"
+          "name": "keyword.operator.call.comlink.map"
         }
       },
       "endCaptures": {
         "0": {
-          "name": "punctuation.brace.close.slang.map"
+          "name": "punctuation.brace.close.comlink.map"
         }
       },
       "patterns": [
@@ -431,10 +431,10 @@
           "end": "(?=})",
           "beginCaptures": {
             "0": {
-              "name": "punctuation.brace.open.slang.map"
+              "name": "punctuation.brace.open.comlink.map"
             }
           },
-          "contentName": "meta.statement.call.slang.map",
+          "contentName": "meta.statement.call.comlink.map",
           "patterns": [
             {
               "include": "#comment"
@@ -457,18 +457,18 @@
       "end": "}",
       "beginCaptures": {
         "1": {
-          "name": "keyword.operator.http-call.slang.map"
+          "name": "keyword.operator.http-call.comlink.map"
         }
       },
       "endCaptures": {
         "0": {
-          "name": "punctuation.brace.close.slang.map"
+          "name": "punctuation.brace.close.comlink.map"
         }
       },
       "patterns": [
         {
           "match": "[a-zA-Z_][a-zA-Z_0-9]*",
-          "name": "constant.language.http-method.slang.map"
+          "name": "constant.language.http-method.comlink.map"
         },
         {
           "include": "#string"
@@ -479,10 +479,10 @@
           "end": "(?=})",
           "beginCaptures": {
             "0": {
-              "name": "punctuation.brace.open.slang.map"
+              "name": "punctuation.brace.open.comlink.map"
             }
           },
-          "contentName": "meta.statement.http-call.slang.map",
+          "contentName": "meta.statement.http-call.comlink.map",
           "patterns": [
             {
               "include": "#comment"
@@ -494,10 +494,10 @@
                   "match": "\\b(security)\\s+(none)\\b",
                   "captures": {
                     "1": {
-                      "name": "keyword.other.slang.map"
+                      "name": "keyword.other.comlink.map"
                     },
                     "2": {
-                      "name": "constant.language.security-scheme.slang.map"
+                      "name": "constant.language.security-scheme.comlink.map"
                     }
                   }
                 },
@@ -506,10 +506,10 @@
                   "end": "$",
                   "beginCaptures": {
                     "1": {
-                      "name": "keyword.other.slang.map"
+                      "name": "keyword.other.comlink.map"
                     }
                   },
-                  "contentName": "meta.statement.http-call.security.slang.map",
+                  "contentName": "meta.statement.http-call.security.comlink.map",
                   "patterns": [
                     {
                       "include": "#string"
@@ -524,12 +524,12 @@
               "end": "}",
               "beginCaptures": {
                 "1": {
-                  "name": "keyword.other.slang.map"
+                  "name": "keyword.other.comlink.map"
                 }
               },
               "endCaptures": {
                 "0": {
-                  "name": "punctuation.brace.close.slang.map"
+                  "name": "punctuation.brace.close.comlink.map"
                 }
               },
               "patterns": [
@@ -541,10 +541,10 @@
                   "end": "(?=})",
                   "beginCaptures": {
                     "0": {
-                      "name": "punctuation.brace.open.slang.map"
+                      "name": "punctuation.brace.open.comlink.map"
                     }
                   },
-                  "contentName": "meta.statement.http-call.request.slang.map",
+                  "contentName": "meta.statement.http-call.request.comlink.map",
                   "patterns": [
                     {
                       "include": "#comment"
@@ -555,7 +555,7 @@
                       "end": "(?<=})",
                       "beginCaptures": {
                         "1": {
-                          "name": "variable.language.query.slang.map"
+                          "name": "variable.language.query.comlink.map"
                         }
                       },
                       "patterns": [
@@ -570,7 +570,7 @@
                       "end": "(?<=})",
                       "beginCaptures": {
                         "1": {
-                          "name": "variable.language.headers.slang.map"
+                          "name": "variable.language.headers.comlink.map"
                         }
                       },
                       "patterns": [
@@ -587,13 +587,13 @@
                           "end": "(?=})",
                           "beginCaptures": {
                             "1": {
-                              "name": "variable.language.body.slang.map"
+                              "name": "variable.language.body.comlink.map"
                             },
                             "2": {
-                              "name": "keyword.operator.equals.slang.map"
+                              "name": "keyword.operator.equals.comlink.map"
                             }
                           },
-                          "contentName": "meta.expression.jessie.slang.map",
+                          "contentName": "meta.expression.jessie.comlink.map",
                           "patterns": [
                             {
                               "include": "#inline-call-statement"
@@ -608,7 +608,7 @@
                           "end": "(?<=})",
                           "beginCaptures": {
                             "1": {
-                              "name": "variable.language.body.slang.map"
+                              "name": "variable.language.body.comlink.map"
                             }
                           },
                           "patterns": [
@@ -629,12 +629,12 @@
               "end": "}",
               "beginCaptures": {
                 "1": {
-                  "name": "keyword.other.slang.map"
+                  "name": "keyword.other.comlink.map"
                 }
               },
               "endCaptures": {
                 "0": {
-                  "name": "punctuation.brace.close.slang.map"
+                  "name": "punctuation.brace.close.comlink.map"
                 }
               },
               "patterns": [
@@ -649,10 +649,10 @@
                   "end": "(?=})",
                   "beginCaptures": {
                     "0": {
-                      "name": "punctuation.brace.open.slang.map"
+                      "name": "punctuation.brace.open.comlink.map"
                     }
                   },
-                  "contentName": "meta.statement.http-call.response.slang.map",
+                  "contentName": "meta.statement.http-call.response.comlink.map",
                   "patterns": [
                     {
                       "include": "#comment"
@@ -679,21 +679,21 @@
       "end": "}",
       "beginCaptures": {
         "1": {
-          "name": "storage.type.map.slang.map"
+          "name": "storage.type.map.comlink.map"
         },
         "2": {
-          "name": "entity.name.type.slang.map"
+          "name": "entity.name.type.comlink.map"
         },
         "3": {
-          "name": "punctuation.brace.open.slang.map"
+          "name": "punctuation.brace.open.comlink.map"
         }
       },
       "endCaptures": {
         "0": {
-          "name": "punctuation.brace.close.slang.map"
+          "name": "punctuation.brace.close.comlink.map"
         }
       },
-      "contentName": "meta.definition.map.slang.map",
+      "contentName": "meta.definition.map.comlink.map",
       "patterns": [
         {
           "include": "#comment"
@@ -720,21 +720,21 @@
       "end": "}",
       "beginCaptures": {
         "1": {
-          "name": "storage.type.operation.slang.map"
+          "name": "storage.type.operation.comlink.map"
         },
         "2": {
-          "name": "entity.name.function.slang.map"
+          "name": "entity.name.function.comlink.map"
         },
         "3": {
-          "name": "punctuation.brace.open.slang.map"
+          "name": "punctuation.brace.open.comlink.map"
         }
       },
       "endCaptures": {
         "0": {
-          "name": "punctuation.brace.close.slang.map"
+          "name": "punctuation.brace.close.comlink.map"
         }
       },
-      "contentName": "meta.definition.operation.slang.map",
+      "contentName": "meta.definition.operation.comlink.map",
       "patterns": [
         {
           "include": "#comment"

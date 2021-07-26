@@ -47,8 +47,8 @@
     "vscode": "^1.52.0"
   },
   "activationEvents": [
-    "onLanguage:slang-map",
-    "onLanguage:slang-profile"
+    "onLanguage:comlink-map",
+    "onLanguage:comlink-profile"
   ],
   "main": "dist/extension",
   "contributes": {
@@ -77,7 +77,7 @@
     },
     "languages": [
       {
-        "id": "slang-map",
+        "id": "comlink-map",
         "aliases": [
           "Superface Map"
         ],
@@ -87,7 +87,7 @@
         "configuration": "syntaxes/language-configuration.json"
       },
       {
-        "id": "slang-profile",
+        "id": "comlink-profile",
         "aliases": [
           "Superface Profile"
         ],
@@ -99,17 +99,17 @@
     ],
     "grammars": [
       {
-        "language": "slang-map",
-        "scopeName": "source.slang.map",
-        "path": "syntaxes/slang-map.tmLanguage.json",
+        "language": "comlink-map",
+        "scopeName": "source.comlink.map",
+        "path": "syntaxes/comlink-map.tmLanguage.json",
         "embeddedLanguages": {
-          "meta.expression.jessie.slang.map": "javascript"
+          "meta.expression.jessie.comlink.map": "javascript"
         }
       },
       {
-        "language": "slang-profile",
-        "scopeName": "source.slang.profile",
-        "path": "syntaxes/slang-profile.tmLanguage.json"
+        "language": "comlink-profile",
+        "scopeName": "source.comlink.profile",
+        "path": "syntaxes/comlink-profile.tmLanguage.json"
       }
     ]
   }
