@@ -24,8 +24,7 @@
     "prettier": "^2.1.2",
     "rimraf": "^3.0.2",
     "typescript": "^4.0.5",
-    "vsce": "^1.87",
-    "ovsx": "^0.1.0"
+    "vsce": "^1.87"
   },
   "dependencies": {
     "@superfaceai/language-server": "0.0.13",
@@ -43,7 +42,7 @@
     "prepush": "yarn lint && yarn format",
     "package": "vsce package --yarn",
     "deploy:vsce": "vsce publish --yarn",
-    "deploy:osvx": "osvx publish"
+    "deploy:osvx": "echo 'use `npx osvx publish`' instead"
   },
   "engines": {
     "vscode": "^1.52.0"
