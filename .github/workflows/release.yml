@@ -102,6 +102,6 @@ jobs:
       # Deploy to open-vsx store - only if we are releasing non-beta version
       - name: Publish to Open VSX Registry
         if: startsWith(github.event.inputs.release-level, 'pre') != true
-        run: npx ovsx publish --packagePath ./superface-language-client-vscode-${NEW_VERSION}.vsix
+        run: npx ovsx publish ./superface-language-client-vscode-${NEW_VERSION}.vsix
         env:
           OVSX_PAT: ${{ secrets.OVSX_MARKETPLACE_PAT }}
