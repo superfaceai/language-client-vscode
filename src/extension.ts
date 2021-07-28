@@ -42,8 +42,8 @@ export function activate(context: ExtensionContext): void {
   // Options to control the language client
   const clientOptions: LanguageClientOptions = {
     documentSelector: [
-      { language: 'slang-map' },
-      { language: 'slang-profile' },
+      { language: 'comlink-map' },
+      { language: 'comlink-profile' },
     ],
     synchronize: {
       // Notify the server about file changes to '.clientrc files contained in the workspace

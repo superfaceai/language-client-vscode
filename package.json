@@ -27,7 +27,7 @@
     "vsce": "^1.87"
   },
   "dependencies": {
-    "@superfaceai/language-server": "0.0.12",
+    "@superfaceai/language-server": "0.0.13",
     "vscode-languageclient": "^7"
   },
   "scripts": {
@@ -47,8 +47,8 @@
     "vscode": "^1.52.0"
   },
   "activationEvents": [
-    "onLanguage:slang-map",
-    "onLanguage:slang-profile"
+    "onLanguage:comlink-map",
+    "onLanguage:comlink-profile"
   ],
   "main": "dist/extension",
   "contributes": {
@@ -77,8 +77,9 @@
     },
     "languages": [
       {
-        "id": "slang-map",
+        "id": "comlink-map",
         "aliases": [
+          "Comlink Map",
           "Superface Map"
         ],
         "extensions": [
@@ -87,8 +88,9 @@
         "configuration": "syntaxes/language-configuration.json"
       },
       {
-        "id": "slang-profile",
+        "id": "comlink-profile",
         "aliases": [
+          "Comlink Profile",
           "Superface Profile"
         ],
         "extensions": [
@@ -99,17 +101,27 @@
     ],
     "grammars": [
       {
-        "language": "slang-map",
-        "scopeName": "source.slang.map",
-        "path": "syntaxes/slang-map.tmLanguage.json",
+        "language": "comlink-map",
+        "scopeName": "source.comlink.map",
+        "path": "syntaxes/comlink-map.tmLanguage.json",
         "embeddedLanguages": {
-          "meta.expression.jessie.slang.map": "javascript"
+          "meta.expression.jessie.comlink.map": "javascript"
         }
       },
       {
-        "language": "slang-profile",
-        "scopeName": "source.slang.profile",
-        "path": "syntaxes/slang-profile.tmLanguage.json"
+        "language": "comlink-profile",
+        "scopeName": "source.comlink.profile",
+        "path": "syntaxes/comlink-profile.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "comlink-map",
+        "path": "snippets/comlink-map.snippets.json"
+      },
+      {
+        "language": "comlink-profile",
+        "path": "snippets/comlink-profile.snippets.json"
       }
     ]
   }

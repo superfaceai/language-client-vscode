@@ -1,0 +1,82 @@
+{
+	"Profile header": {
+		"prefix": [
+			"header",
+			"profile"
+		],
+		"body": [
+			"\"\"\"",
+			"${3:title}",
+			"",
+			"${4:description}",
+			"\"\"\"",
+			"name = \"${1:$TM_FILENAME_BASE}\"",
+			"version = \"${2:0.1.0}\"",
+			""
+		],
+		"description": "A profile header information section"
+	},
+	"Usecase definition": {
+		"prefix": [
+			"usecase"
+		],
+		"body": [
+			"\"${6:doc title}\"",
+			"usecase ${1:Name} ${2|safe,unsafe,idempotent|} {",
+			"\tinput ${3}",
+			"",
+			"\tresult ${4}",
+			"",
+			"\terror ${5}",
+			"",
+			"}"
+		],
+		"description": "A usecase definition"
+	},
+	"Named model": {
+		"prefix": [
+			"model"
+		],
+		"body": [
+			"\"${4:doc title}\"",
+			"model ${1:Model} ${2:MyType}"
+		],
+		"description": "A named model definition"
+	},
+	"Named field": {
+		"prefix": [
+			"field"
+		],
+		"body": [
+			"\"${3:doc title}\"",
+			"field ${1:field} ${2:string!}"
+		],
+		"description": "A named model definition"
+	},
+	"Object model": {
+		"prefix": [
+			"object"
+		],
+		"body": [
+			"{",
+			"\t\"${4:field title}\"",
+			"\t${2:field} ${3:MyType! | OtherType!},",
+			"\t\"${7:field title}\"",
+			"\t${5:field} ${6:boolean}",
+			"}"
+		],
+		"description": "An object model"
+	},
+	"Enum model": {
+		"prefix": [
+			"enum"
+		],
+		"body": [
+			"enum {",
+			"\t${1:SUCCESS} = ${2:0},",
+			"\t${3:FAIL} = ${4:-1}",
+			"}"
+		],
+		"description": "An enum model"
+	}
+}

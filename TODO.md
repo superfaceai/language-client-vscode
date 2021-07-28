@@ -10,4 +10,6 @@
     ]
 ```
 
+Also for super.json and provider.json?
+
 2. read and respect configuration for language server
