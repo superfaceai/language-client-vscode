@@ -41,7 +41,8 @@
     "format:fix": "prettier --write src/",
     "prepush": "yarn lint && yarn format",
     "package": "vsce package --yarn",
-    "deploy": "vsce publish --yarn"
+    "deploy:vsce": "vsce publish --yarn",
+    "deploy:osvx": "echo 'use `npx osvx publish`' instead"
   },
   "engines": {
     "vscode": "^1.52.0"
