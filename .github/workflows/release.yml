@@ -68,7 +68,7 @@ jobs:
       # Deploy to Microsoft store - only if we are releasing non-beta version
       - name: Publish to Microsoft Extension Marketplace
         if: startsWith(github.event.inputs.release-level, 'pre') != true
-        run: yarn deploy --packagePath ./superface-language-client-vscode-${NEW_VERSION}.vsix
+        run: yarn deploy:vsce --packagePath ./superface-language-client-vscode-${NEW_VERSION}.vsix
         env:
           VSCE_PAT: ${{ secrets.VSCODE_MARKETPLACE_PAT }}
       
