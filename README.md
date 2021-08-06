@@ -13,6 +13,12 @@ Extension that provides a client for the Superface Language server and syntax hi
 
 ## Install
 
+### Marketplace
+
+The extension is released to both the [Microsoft marketplace](https://marketplace.visualstudio.com/items?itemName=superfaceai.superface-language-client-vscode) and the [OpenVSX registry](https://open-vsx.org/extension/superfaceai/superface-language-client-vscode).
+
+### Manual
+
 Download the `.vsix` file from one of the Github [releases](https://github.com/superfaceai/language-client-vscode/releases).
 
 Install the extension using
