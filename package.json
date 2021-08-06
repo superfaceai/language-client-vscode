@@ -2,7 +2,7 @@
   "name": "superface-language-client-vscode",
   "displayName": "Superface Language Client",
   "description": "Superface Language Client for VSCode",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "repository": "https://github.com/superfaceai/language-client-vscode",
   "author": "Superface Team",
   "publisher": "superfaceai",
