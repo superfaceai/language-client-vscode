@@ -1,8 +1,11 @@
 **/*
 
-!syntaxes/*.json
 !README.md
 !LICENSE.md
-!package.json
-!dist/
+
 !node_modules/
+!dist/
+
+!package.json
+!syntaxes/*.json
+!snippets/*.json
