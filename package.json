@@ -27,7 +27,7 @@
     "vsce": "^1.87"
   },
   "dependencies": {
-    "@superfaceai/language-server": "0.0.13",
+    "@superfaceai/language-server": "0.0.15",
     "vscode-languageclient": "^7"
   },
   "scripts": {
@@ -123,6 +123,20 @@
       {
         "language": "comlink-profile",
         "path": "snippets/comlink-profile.snippets.json"
+      }
+    ],
+    "jsonValidation": [
+      {
+        "fileMatch": "*.suma.ast.json",
+        "url": "https://raw.githubusercontent.com/superfaceai/ast-js/main/src/interfaces/ast/map-ast.schema.json"
+      },
+      {
+        "fileMatch": "*.supr.ast.json",
+        "url": "https://raw.githubusercontent.com/superfaceai/ast-js/main/src/interfaces/ast/profile-ast.schema.json"
+      },
+      {
+        "fileMatch": "super.json",
+        "url": "https://superface.ai/docs/comlink/super.json"
       }
     ]
   }

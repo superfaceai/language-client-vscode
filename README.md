@@ -23,7 +23,16 @@ code --install-extension <path-to-vsix>
 
 ## Usage
 
-The extension automatically starts a bundled language server and provides syntax highlighting grammar definitions for vscode.
+The extension provides following features:
+* Syntax highlighting for Comlink maps and profiles
+* Code snippets for Comlink maps and profiles
+* JSON schemas for Comlink ASTs and super.json (wip)
+* Bundled [language server](https://github.com/superfaceai/language-server)
+	- Syntax checking
+	- Semantic linting
+	- Workspace symbol search (requires VSCode to be open in workspace mode)
+
+![preview](docs/preview.gif)
 
 ## Development
 
