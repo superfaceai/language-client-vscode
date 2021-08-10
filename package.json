@@ -1,7 +1,8 @@
 {
   "name": "superface-language-client-vscode",
   "displayName": "Superface Language Client",
-  "description": "Superface Language Client for VSCode",
+  "description": "Superface Language Client for Visual Studio Code",
+  "icon": "docs/LogoGreen.png",
   "version": "0.1.3",
   "repository": "https://github.com/superfaceai/language-client-vscode",
   "author": "Superface Team",

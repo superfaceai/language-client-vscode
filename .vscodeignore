@@ -9,3 +9,4 @@
 !package.json
 !syntaxes/*.json
 !snippets/*.json
+!docs/*

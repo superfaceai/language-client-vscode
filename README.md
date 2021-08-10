@@ -1,4 +1,4 @@
-# Superface Language client for VSCode
+# Superface Language client for Visual Studio Code
 
 Extension that provides a client for the Superface Language server and syntax highlighting definitions.
 
