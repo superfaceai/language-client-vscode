@@ -28,7 +28,7 @@
     "vsce": "^1.87"
   },
   "dependencies": {
-    "@superfaceai/language-server": "0.0.15",
+    "@superfaceai/language-server": "0.0.16",
     "vscode-languageclient": "^7"
   },
   "scripts": {
