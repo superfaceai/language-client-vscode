@@ -80,8 +80,10 @@
   dependencies:
     typescript-is "^0.18.3"
 
-"@superfaceai/language-server@file:.yalc/@superfaceai/language-server":
-  version "0.0.15"
+"@superfaceai/language-server@0.0.16":
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/@superfaceai/language-server/-/language-server-0.0.16.tgz#fe8323d34521892821a36891e715af7d2f6f9130"
+  integrity sha512-Dyz2Bh4C90HdoOD2S5LRGefD72lKYQNownzv7rovqt1bI/YkPxwYkQghohUn7nsRSGx6F0+dBrZRwKjKH9cHxg==
   dependencies:
     "@superfaceai/parser" "0.0.22"
     vscode-languageserver "^7"
