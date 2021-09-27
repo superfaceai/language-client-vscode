@@ -3,7 +3,7 @@ on:
   - push
 
 jobs:
-  lint:
+  build-and-lint:
     runs-on: ubuntu-latest
     steps:
       # Setup environment and checkout the project master
@@ -30,7 +30,7 @@ jobs:
 
       # Install and run lint
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile
       - name: Lint
         run: yarn lint
       - name: Build
