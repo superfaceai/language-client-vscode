@@ -79,7 +79,7 @@
     },
     "operator": {
       "name": "keyword.operator.comlink.profile",
-      "match": "(=|,|\\||!)"
+      "match": "(=|,|\\||!|\\.)"
     },
 
     "field-definition": {
@@ -168,6 +168,144 @@
         {
           "match": "\\b([a-zA-Z_][a-zA-Z_0-9]*)\\b",
           "name": "entity.name.type.comlink.profile"
+        },
+        { "include": "#operator" }
+      ]
+    },
+
+    "comlink-primitive-literal": {
+      "patterns": [
+        { "include": "#number" },
+        { "include": "#boolean" },
+        { "include": "#string" }
+      ]
+    },
+    "comlink-object-literal": {
+      "begin": "{",
+      "end": "}",
+      "beginCaptures": {
+        "0": { "name": "punctuation.brace.open.comlink.profile" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.brace.close.comlink.profile" }
+      },
+      "patterns": [
+        { "include": "#comment" },
+        { "include": "#string" },
+        {
+          "comment": "object-literal-assignemnt",
+          "begin": "(\\S+.*?)\\s*(=)\\s*",
+          "end": "((?=})|,|$)",
+          "beginCaptures": {
+            "1": {
+              "name": "variable.other.comlink.profile",
+              "patterns": [
+                { "include": "#string" },
+                { "include": "#operator" }
+              ]
+            },
+            "2": {
+              "name": "keyword.operator.comlink.profile"
+            }
+          },
+          "endCaptures": {
+            "1": {
+              "name": "keyword.operator.comlink.profile"
+            }
+          },
+          "patterns": [
+            { "include": "#comment" },
+            { "include": "#comlink-literal" }
+          ]
+        }
+      ]
+    },
+    "comlink-list-literal": {
+      "begin": "\\[",
+      "end": "\\]",
+      "beginCaptures": {
+        "0": { "name": "punctuation.bracket.open.comlink.profile" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.bracket.close.comlink.profile" }
+      },
+      "patterns": [
+        { "include": "#comment" },
+        { "include": "#comlink-literal" }
+      ]
+    },
+    "comlink-literal": {
+      "patterns": [
+        { "include": "#comlink-list-literal" },
+        { "include": "#comlink-object-literal" },
+        { "include": "#comlink-primitive-literal" }
+      ]
+    },
+
+    "usecase-example": {
+      "begin": "([a-zA-Z_][a-zA-Z_0-9]*)?\\s*({)",
+      "end": "}",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.name.type"
+        },
+        "2": {
+          "name": "punctuation.brace.open.comlink.profile"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.brace.close.comlink.profile"
+        }
+      },
+      "contentName": "meta.definition.example.comlink-profile",
+      "patterns": [
+        { "include": "#comment" },
+        { "include": "#string" },
+        {
+          "begin": "\\b(input)\\b",
+          "end": "$",
+          "beginCaptures": {
+            "1": { "name": "variable.language.input.comlink.profile" }
+          },
+          "patterns": [
+            { "include": "#comment" },
+            { "include": "#comlink-literal" }
+          ]
+        },
+        {
+          "begin": "\\b(result)\\b",
+          "end": "$",
+          "beginCaptures": {
+            "1": { "name": "variable.language.result.comlink.profile" }
+          },
+          "patterns": [
+            { "include": "#comment" },
+            { "include": "#comlink-literal" }
+          ]
+        },
+        {
+          "begin": "\\b(async)\\s+(result)\\b",
+          "end": "$",
+          "beginCaptures": {
+            "1": { "name": "variable.language.async.comlink.profile" },
+            "2": { "name": "variable.language.result.comlink.profile" }
+          },
+          "patterns": [
+            { "include": "#comment" },
+            { "include": "#comlink-literal" }
+          ]
+        },
+        {
+          "begin": "\\b(error)\\b",
+          "end": "$",
+          "beginCaptures": {
+            "1": { "name": "variable.language.error.comlink.profile" }
+          },
+          "patterns": [
+            { "include": "#comment" },
+            { "include": "#comlink-literal" }
+          ]
         }
       ]
     },
@@ -205,6 +343,7 @@
             "1": { "name": "variable.language.input.comlink.profile" }
           },
           "patterns": [
+            { "include": "#comment" },
             { "include": "#type" }
           ]
         },
@@ -215,6 +354,7 @@
             "1": { "name": "variable.language.result.comlink.profile" }
           },
           "patterns": [
+            { "include": "#comment" },
             { "include": "#type" }
           ]
         },
@@ -222,10 +362,11 @@
           "begin": "\\b(async)\\s+(result)\\b",
           "end": "$",
           "beginCaptures": {
-            "1": { "name": "variable.language.result.comlink.profile" },
+            "1": { "name": "variable.language.async.comlink.profile" },
             "2": { "name": "variable.language.result.comlink.profile" }
           },
           "patterns": [
+            { "include": "#comment" },
             { "include": "#type" }
           ]
         },
@@ -233,10 +374,22 @@
           "begin": "\\b(error)\\b",
           "end": "$",
           "beginCaptures": {
-            "1": { "name": "variable.language.result.comlink.profile" }
+            "1": { "name": "variable.language.error.comlink.profile" }
           },
           "patterns": [
+            { "include": "#comment" },
             { "include": "#type" }
+          ]
+        },
+        {
+          "begin": "\\b(example)\\b",
+          "end": "$",
+          "beginCaptures": {
+            "1": { "name": "variable.language.example.comlink.profile" }
+          },
+          "patterns": [
+            { "include": "#comment" },
+            { "include": "#usecase-example" }
           ]
         }
       ]
