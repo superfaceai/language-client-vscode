@@ -3,7 +3,7 @@
   "displayName": "Superface Language Client",
   "description": "Superface Language Client for Visual Studio Code",
   "icon": "docs/LogoGreen.png",
-  "version": "0.1.6",
+  "version": "1.0.0",
   "repository": "https://github.com/superfaceai/language-client-vscode",
   "author": "Superface Team",
   "publisher": "superfaceai",
