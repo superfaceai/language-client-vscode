@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1-beta.0] - 2021-11-30
+
 ## [1.0.0] - 2021-11-05
 ### Changed
 - Updated language-server to v1.0.0
@@ -91,7 +93,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - `vsix` file release in github flow
 
-[Unreleased]: https://github.com/superfaceai/language-client-vscode/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/superfaceai/language-client-vscode/compare/v1.0.1-beta.0...HEAD
+[1.0.1-beta.0]: https://github.com/superfaceai/language-client-vscode/compare/v1.0.0...v1.0.1-beta.0
 [1.0.0]: https://github.com/superfaceai/language-client-vscode/compare/v0.1.6...v1.0.0
 [0.1.6]: https://github.com/superfaceai/language-client-vscode/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/superfaceai/language-client-vscode/compare/v0.1.4...v0.1.5
