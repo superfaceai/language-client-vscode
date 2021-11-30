@@ -80,19 +80,19 @@
   dependencies:
     typescript-is "^0.18.3"
 
-"@superfaceai/language-server@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@superfaceai/language-server/-/language-server-1.0.0.tgz#9fb2000eed0d495ce36c09f0397b97b97af70cb4"
-  integrity sha512-gcJ+xzwMF1nL9YIbTkOLM7KL4u9mOW/8zC9RqxH1xYXsFbjVc6hxCPCzR+pHGcuB5P4hV9vI43ZoLdS3o2COMg==
+"@superfaceai/language-server@^1.0.1-beta.0":
+  version "1.0.1-beta.0"
+  resolved "https://registry.yarnpkg.com/@superfaceai/language-server/-/language-server-1.0.1-beta.0.tgz#80ced42fb7758a9636853b8f76dea8077c03d3eb"
+  integrity sha512-h69xqqcnaHxv/QHTuhze5uM3cHfZnIyvrlMwie8OWIspE6TPMqdwqiX3nahXPXnlV5Tacvogvh1D8Feb4LvdzQ==
   dependencies:
-    "@superfaceai/parser" "^1.0.0"
+    "@superfaceai/parser" "^1.1.0-rc.1"
     vscode-languageserver "^7"
     vscode-languageserver-textdocument "^1.0.1"
 
-"@superfaceai/parser@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@superfaceai/parser/-/parser-1.0.0.tgz#48e55b40670a9af6e603107709cc89ae538f71d8"
-  integrity sha512-verBpn8bN13fAo1pDCNMGxKLwXC26dlR7iDIM2ekioN/K+kOtXjq6A/bWILvJ+jAP2gWRHGZU017SKGPRrPOHg==
+"@superfaceai/parser@^1.1.0-rc.1":
+  version "1.1.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@superfaceai/parser/-/parser-1.1.0-rc.1.tgz#73448ed633689ef551d17d4d5b554adcdb5a3a53"
+  integrity sha512-8qwRDqUdU3oF1+YJ9Xr2ckYZFav3RWPCsO2PRfG54fZmnwQC/T3qSePoPnnA8rPX/q3KDQhS5cMXfyYV8/uwng==
   dependencies:
     "@superfaceai/ast" "1.0.0"
     "@types/debug" "^4.1.5"
