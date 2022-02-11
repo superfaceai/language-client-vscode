@@ -1,18 +1,9 @@
 import * as path from 'path';
-import {
-  // workspace,
-  ExtensionContext,
-} from 'vscode';
-import {
-  LanguageClient,
-  LanguageClientOptions,
-  ServerOptions,
-  TransportKind,
-} from 'vscode-languageclient/node';
+import * as vscode from 'vscode';
 
-let client: LanguageClient;
+import { runClient, stopClient } from './language-client';
 
-export function activate(context: ExtensionContext): void {
+export function activate(context: vscode.ExtensionContext): void {
   const serverModule = context.asAbsolutePath(
     path.join(
       'node_modules',
@@ -23,50 +14,34 @@ export function activate(context: ExtensionContext): void {
     )
   );
 
-  // If the extension is launched in debug mode then the debug server options are used
-  // Otherwise the run options are used
-  const serverOptions: ServerOptions = {
-    run: {
-      module: serverModule,
-      transport: TransportKind.ipc,
-    },
-    debug: {
-      module: serverModule,
-      transport: TransportKind.ipc,
-      options: {
-        execArgv: ['--nolazy', '--inspect=7357'],
-      },
-    },
-  };
+  const configuredView = vscode.workspace.getConfiguration();
 
-  // Options to control the language client
-  const clientOptions: LanguageClientOptions = {
-    documentSelector: [
-      { language: 'comlink-map' },
-      { language: 'comlink-profile' },
-    ],
-    synchronize: {
-      // Notify the server about file changes to '.clientrc files contained in the workspace
-      // fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
-    },
-  };
-
-  // Create the language client and start the client.
-  client = new LanguageClient(
-    'superfaceLanguageClient',
-    'Superface Language Client',
-    serverOptions,
-    clientOptions
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      'superfaceLanguageClient.commands.languageServer.restart',
+      () => {
+        runClient(serverModule, true);
+      }
+    )
   );
 
-  // Start the client. This will also launch the server
-  client.start();
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      'superfaceLanguageClient.commands.languageServer.stop',
+      async () => {
+        return stopClient();
+      }
+    )
+  );
+
+  if (
+    configuredView.get('superfaceLanguageClient.languageServer.enabled') ===
+    true
+  ) {
+    runClient(serverModule);
+  }
 }
 
 export function deactivate(): Promise<void> | undefined {
-  if (!client) {
-    return undefined;
-  }
-
-  return client.stop();
+  return stopClient();
 }
