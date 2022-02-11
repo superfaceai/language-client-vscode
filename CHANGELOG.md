@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Configuration capability to disable the language server
+- Workspace commands to start/restart and stop the language server
+
 ## [1.0.1-beta.0] - 2021-11-30
 
 ## [1.0.0] - 2021-11-05

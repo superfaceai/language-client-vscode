@@ -28,7 +28,7 @@
     "vsce": "^1.87"
   },
   "dependencies": {
-    "@superfaceai/language-server": "^1.0.0",
+    "@superfaceai/language-server": "^1.1.0",
     "vscode-languageclient": "^7"
   },
   "scripts": {
@@ -56,15 +56,15 @@
   "contributes": {
     "configuration": {
       "type": "object",
-      "title": "Superface",
+      "title": "Superface Language Client",
       "properties": {
-        "superfaceLanguageClient.maxProblems": {
+        "superfaceLanguageClient.languageServer.enabled": {
+          "type": "boolean",
           "scope": "resource",
-          "type": "number",
-          "default": 100,
-          "description": "Controls the maximum number of problems produced by the server."
+          "default": true,
+          "description": "Controls whether the language server is enabled."
         },
-        "superfaceLanguageClient.trace.server": {
+        "superfaceLanguageClient.languageServer.trace": {
           "scope": "window",
           "type": "string",
           "enum": [
@@ -77,6 +77,18 @@
         }
       }
     },
+    "commands": [
+      {
+        "category": "Comlink Server",
+        "command": "superfaceLanguageClient.commands.languageServer.restart",
+        "title": "(Re)Start Superface language server"
+      },
+      {
+        "category": "Comlink Server",
+        "command": "superfaceLanguageClient.commands.languageServer.stop",
+        "title": "Stop Superface language server"
+      }
+    ],
     "languages": [
       {
         "id": "comlink-map",
