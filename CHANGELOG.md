@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2022-02-11
 ### Added
 - Configuration capability to disable the language server
 - Workspace commands to start/restart and stop the language server
@@ -97,7 +98,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - `vsix` file release in github flow
 
-[Unreleased]: https://github.com/superfaceai/language-client-vscode/compare/v1.0.1-beta.0...HEAD
+[Unreleased]: https://github.com/superfaceai/language-client-vscode/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/superfaceai/language-client-vscode/compare/v1.0.1-beta.0...v1.1.0
 [1.0.1-beta.0]: https://github.com/superfaceai/language-client-vscode/compare/v1.0.0...v1.0.1-beta.0
 [1.0.0]: https://github.com/superfaceai/language-client-vscode/compare/v0.1.6...v1.0.0
 [0.1.6]: https://github.com/superfaceai/language-client-vscode/compare/v0.1.5...v0.1.6
