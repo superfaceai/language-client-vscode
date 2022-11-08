@@ -87,4 +87,4 @@ Note: If editing the README, please conform to the [standard-readme](https://git
 ## License
 
 The Superface is licensed under the [MIT](LICENSE).
-© 2021 Superface
+© 2022 Superface
