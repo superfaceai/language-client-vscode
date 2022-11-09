@@ -14,7 +14,7 @@
   ],
   "devDependencies": {
     "@types/node": "^18.11.9",
-    "@types/vscode": "1.73.0",
+    "@types/vscode": "1.70.0",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^5.42.1",
     "eslint": "^8.27.0",
@@ -47,7 +47,7 @@
     "deploy:osvx": "echo 'use `npx osvx publish`' instead"
   },
   "engines": {
-    "vscode": "^1.52.0"
+    "vscode": "^1.70.0"
   },
   "activationEvents": [
     "onLanguage:comlink-map",
