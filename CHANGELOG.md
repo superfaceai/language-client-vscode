@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Updated language-server with fix ENUM resolution
+
 ## [1.1.0] - 2022-02-11
 ### Added
 - Configuration capability to disable the language server

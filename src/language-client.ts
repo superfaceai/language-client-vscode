@@ -64,7 +64,7 @@ export function runClient(serverModule: string, force?: boolean): boolean {
   );
 
   // Start the client. This will also launch the server.
-  CLIENT.start();
+  void CLIENT.start();
 
   return true;
 }
