@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] - 2022-11-09
 ### Fixed
 - Updated language-server with fix ENUM resolution
 
@@ -101,7 +102,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - `vsix` file release in github flow
 
-[Unreleased]: https://github.com/superfaceai/language-client-vscode/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/superfaceai/language-client-vscode/compare/v1.1.1...HEAD
+[1.1.1]: https://github.com/superfaceai/language-client-vscode/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/superfaceai/language-client-vscode/compare/v1.0.1-beta.0...v1.1.0
 [1.0.1-beta.0]: https://github.com/superfaceai/language-client-vscode/compare/v1.0.0...v1.0.1-beta.0
 [1.0.0]: https://github.com/superfaceai/language-client-vscode/compare/v0.1.6...v1.0.0
