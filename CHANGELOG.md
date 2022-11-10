@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.1.2] - 2022-11-10
 ### Fixed
 - AJV resolution when packing extension https://github.com/microsoft/vscode-vsce/issues/432
 
@@ -104,7 +106,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - `vsix` file release in github flow
 
-[Unreleased]: https://github.com/superfaceai/language-client-vscode/compare/v1.1.1...HEAD
+[Unreleased]: https://github.com/superfaceai/language-client-vscode/compare/v1.1.2...HEAD
+[1.1.2]: https://github.com/superfaceai/language-client-vscode/compare/v1.1.1...v1.1.2
 [1.1.1]: https://github.com/superfaceai/language-client-vscode/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/superfaceai/language-client-vscode/compare/v1.0.1-beta.0...v1.1.0
 [1.0.1-beta.0]: https://github.com/superfaceai/language-client-vscode/compare/v1.0.0...v1.0.1-beta.0
