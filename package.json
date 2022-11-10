@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@superfaceai/language-server": "^1.1.0",
+    "ajv": "^8.11.0",
     "vscode-languageclient": "^8.0.2"
   },
   "scripts": {
