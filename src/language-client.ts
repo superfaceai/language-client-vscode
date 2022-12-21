@@ -58,7 +58,7 @@ export function runClient(serverModule: string, force?: boolean): boolean {
   // Create the language client and start the client.
   CLIENT = new LanguageClient(
     'superfaceLanguageClient',
-    'Superface Language Client',
+    'Superface Language Server',
     serverOptions,
     clientOptions
   );
