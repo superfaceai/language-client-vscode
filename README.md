@@ -32,7 +32,8 @@ code --install-extension <path-to-vsix>
 The extension provides following features:
 * Syntax highlighting for Comlink maps and profiles
 * Code snippets for Comlink maps and profiles
-* JSON schemas for Comlink ASTs and super.json (wip)
+* JSON schemas for Comlink ASTs and super.json
+* Superface outline view to show super.json configuration in current workspace
 * Bundled [language server](https://github.com/superfaceai/language-server)
 	- Syntax checking
 	- Semantic linting

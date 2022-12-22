@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Superface outline view prototype - shows super.json and allows easy navigation to source files (profiles, maps, providers)
+
 ## [1.1.2] - 2022-11-10
 ### Fixed
 - AJV resolution when packing extension https://github.com/microsoft/vscode-vsce/issues/432
