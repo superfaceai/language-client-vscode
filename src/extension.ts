@@ -18,9 +18,9 @@ export function activate(context: vscode.ExtensionContext): void {
   const configuredView = vscode.workspace.getConfiguration();
 
   const workspaceRoot = vscode.workspace.workspaceFolders?.[0]?.uri?.fsPath;
-  let superfaceOutline: SuperfaceOutline | undefined = undefined
+  let superfaceOutline: SuperfaceOutline | undefined = undefined;
   if (workspaceRoot !== undefined) {
-    superfaceOutline = new SuperfaceOutline(workspaceRoot)
+    superfaceOutline = new SuperfaceOutline(workspaceRoot);
 
     context.subscriptions.push(
       vscode.window.registerTreeDataProvider(
@@ -49,7 +49,9 @@ export function activate(context: vscode.ExtensionContext): void {
   context.subscriptions.push(
     vscode.commands.registerCommand(
       'superfaceLanguageClient.commands.outline.refresh',
-      () => { superfaceOutline?.refresh() }
+      () => {
+        superfaceOutline?.refresh();
+      }
     )
   );
 

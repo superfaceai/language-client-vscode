@@ -1,37 +1,35 @@
 import {
+  NormalizedProfileProviderSettings,
+  NormalizedProfileSettings,
+  NormalizedProviderSettings,
+} from '@superfaceai/ast';
+import {
+  DEFAULT_API_URL,
+  detectSuperJson,
+  IFileSystem,
+  loadSuperJson,
+  META_FILE,
+  NodeFileSystem,
+  normalizeSuperJsonDocument,
+} from '@superfaceai/one-sdk';
+import * as jsonc from 'jsonc-parser';
+import * as path from 'path';
+import {
   Command,
   Event,
   EventEmitter,
+  OutputChannel,
+  Position,
+  Range,
+  TextDocumentShowOptions,
   ThemeIcon,
   TreeDataProvider,
   TreeItem,
   TreeItemCollapsibleState,
   Uri,
-  OutputChannel,
-  Position,
   window,
   workspace,
-  TextDocumentShowOptions,
-  Range
 } from 'vscode';
-import * as path from 'path';
-
-import {
-  detectSuperJson,
-  loadSuperJson,
-  normalizeSuperJsonDocument,
-  NodeFileSystem,
-  DEFAULT_API_URL,
-  META_FILE,
-  IFileSystem
-} from '@superfaceai/one-sdk';
-import {
-  NormalizedProfileSettings,
-  NormalizedProfileProviderSettings,
-  NormalizedProviderSettings
-} from '@superfaceai/ast';
-
-import * as jsonc from 'jsonc-parser';
 
 class SuperJsonLabels {
   private readonly superJsonPath: Uri;
@@ -40,26 +38,37 @@ class SuperJsonLabels {
       [profile: string]: {
         range: Range;
         providers: {
-          [provider: string]: { range: Range; }
-        }
-      }
-    },
+          [provider: string]: { range: Range };
+        };
+      };
+    };
     providers: {
-      [provider: string]: { range: Range; }
-    }
+      [provider: string]: { range: Range };
+    };
   } = { profiles: {}, providers: {} };
 
-  public static async fromPath(superJsonPath: string): Promise<SuperJsonLabels> {
-    const text = await workspace.fs.readFile(Uri.file(superJsonPath)).then(b => Buffer.from(b).toString('utf-8'));
+  public static async fromPath(
+    superJsonPath: string
+  ): Promise<SuperJsonLabels> {
+    const text = await workspace.fs
+      .readFile(Uri.file(superJsonPath))
+      .then(b => Buffer.from(b).toString('utf-8'));
 
     return new SuperJsonLabels(superJsonPath, text);
   }
-  
+
   private constructor(superJsonPath: string, text: string) {
     this.superJsonPath = Uri.file(superJsonPath);
-    
+
     const visitor: jsonc.JSONVisitor = {
-      onObjectProperty: (property: string, _offset: number, length: number, startLine: number, startCharacter: number, pathSupplier: () => jsonc.JSONPath) => {
+      onObjectProperty: (
+        property: string,
+        _offset: number,
+        length: number,
+        startLine: number,
+        startCharacter: number,
+        pathSupplier: () => jsonc.JSONPath
+      ) => {
         const path = pathSupplier();
         const range = new Range(
           new Position(startLine, startCharacter),
@@ -77,29 +86,47 @@ class SuperJsonLabels {
             this.labels.profiles[path[1]].providers[property] = { range };
           }
         }
-      }
+      },
     };
     jsonc.visit(text, visitor);
   }
 
   profile(name: string): [Uri, TextDocumentShowOptions] {
-    return [this.superJsonPath, { selection: this.labels.profiles[name].range }];
+    return [
+      this.superJsonPath,
+      { selection: this.labels.profiles[name].range },
+    ];
   }
 
-  profileProvider(profile: string, provider: string): [Uri, TextDocumentShowOptions] {
-    return [this.superJsonPath, { selection: this.labels.profiles?.[profile]?.providers?.[provider]?.range }];
+  profileProvider(
+    profile: string,
+    provider: string
+  ): [Uri, TextDocumentShowOptions] {
+    return [
+      this.superJsonPath,
+      {
+        selection:
+          this.labels.profiles?.[profile]?.providers?.[provider]?.range,
+      },
+    ];
   }
 
   provider(name: string): [Uri, TextDocumentShowOptions] {
-    return [this.superJsonPath, { selection: this.labels.providers?.[name]?.range }];
+    return [
+      this.superJsonPath,
+      { selection: this.labels.providers?.[name]?.range },
+    ];
   }
 }
 
-
 export class SuperfaceOutline implements TreeDataProvider<OutlineElement> {
-  private _onDidChangeTreeData: EventEmitter<OutlineElement | undefined | null | void> = new EventEmitter<OutlineElement | undefined | null | void>();
-  readonly onDidChangeTreeData: Event<OutlineElement | undefined | null | void> = this._onDidChangeTreeData.event;
-  
+  private _onDidChangeTreeData: EventEmitter<
+    OutlineElement | undefined | null | void
+  > = new EventEmitter<OutlineElement | undefined | null | void>();
+  readonly onDidChangeTreeData: Event<
+    OutlineElement | undefined | null | void
+  > = this._onDidChangeTreeData.event;
+
   private readonly workspaceRoot: string;
   private readonly output: OutputChannel;
 
@@ -107,7 +134,7 @@ export class SuperfaceOutline implements TreeDataProvider<OutlineElement> {
     this.workspaceRoot = workspaceRoot;
     this.output = window.createOutputChannel('Superface Outline');
 
-    this.output.appendLine(`Initialized in ${this.workspaceRoot}`)
+    this.output.appendLine(`Initialized in ${this.workspaceRoot}`);
   }
 
   getTreeItem(element: OutlineElement): TreeItem | Thenable<TreeItem> {
@@ -124,25 +151,29 @@ export class SuperfaceOutline implements TreeDataProvider<OutlineElement> {
       ...NodeFileSystem,
       path: {
         ...NodeFileSystem.path,
-        cwd: () => this.workspaceRoot
+        cwd: () => this.workspaceRoot,
       },
       sync: {
-        ...NodeFileSystem.sync
-      }
+        ...NodeFileSystem.sync,
+      },
     };
 
     const superPath = await detectSuperJson(this.workspaceRoot, fs);
     if (superPath === undefined) {
       this.output.appendLine('Did not find super.json in workspace');
+
       return [];
     }
 
     const basePath = path.join(this.workspaceRoot, superPath);
     const superJsonPath = path.join(basePath, META_FILE);
-    const superJson = await loadSuperJson(superJsonPath, fs)
+    const superJson = await loadSuperJson(superJsonPath, fs);
     if (superJson.isErr()) {
-      this.output.appendLine(`Failed to load super.json: ${superJson.error.formatLong()}`);
-      window.showErrorMessage('Failed to load super.json')
+      this.output.appendLine(
+        `Failed to load super.json: ${superJson.error.formatLong()}`
+      );
+      void window.showErrorMessage('Failed to load super.json');
+
       return [];
     }
     const normalized = normalizeSuperJsonDocument(superJson.value);
@@ -157,22 +188,34 @@ export class SuperfaceOutline implements TreeDataProvider<OutlineElement> {
           new OutlineSection(
             'profiles',
             Object.entries(normalized.profiles).map(
-              ([name, settings]) => new OutlineProfile(name, settings, { basePath, labels: superJsonLabels })
+              ([name, settings]) =>
+                new OutlineProfile(name, settings, {
+                  basePath,
+                  labels: superJsonLabels,
+                })
             )
           ),
           new OutlineSection(
             'providers',
             Object.entries(normalized.providers).map(
-              ([name, settings]) => new OutlineProvider(name, settings, { basePath, labels: superJsonLabels })
+              ([name, settings]) =>
+                new OutlineProvider(name, settings, {
+                  basePath,
+                  labels: superJsonLabels,
+                })
             )
-          )
+          ),
         ],
         {
           icon: new ThemeIcon('json'),
-          command: { title: 'Open', command: 'vscode.open', arguments: [Uri.file(superJsonPath)] }
+          command: {
+            title: 'Open',
+            command: 'vscode.open',
+            arguments: [Uri.file(superJsonPath)],
+          },
         }
-      )
-    ]
+      ),
+    ];
   }
 
   refresh(): void {
@@ -190,7 +233,7 @@ class OutlineSection extends OutlineElement {
   constructor(
     label: string,
     children: OutlineElement[],
-    options: { icon?: ThemeIcon, command?: Command } = {}
+    options: { icon?: ThemeIcon; command?: Command } = {}
   ) {
     super(label, TreeItemCollapsibleState.Collapsed);
     this.children = children;
@@ -215,12 +258,14 @@ class OutlineProfile extends OutlineElement {
   constructor(
     name: string,
     settings: NormalizedProfileSettings,
-    options: { basePath: string, labels: SuperJsonLabels }
+    options: { basePath: string; labels: SuperJsonLabels }
   ) {
     super(name, TreeItemCollapsibleState.Collapsed);
     this.iconPath = new ThemeIcon('symbol-interface');
     this.command = {
-      title: 'Definition', command: 'vscode.open', arguments: options.labels.profile(name)
+      title: 'Definition',
+      command: 'vscode.open',
+      arguments: options.labels.profile(name),
     };
 
     let profileVersion: string | undefined = undefined;
@@ -237,7 +282,13 @@ class OutlineProfile extends OutlineElement {
 
     this.children.push(
       ...Object.entries(settings.providers).map(
-        ([providerName, profileProvider]) => new OutlineProfileProvider(providerName, profileProvider, { basePath: options.basePath, labels: options.labels, profileName: name, profileVersion })
+        ([providerName, profileProvider]) =>
+          new OutlineProfileProvider(providerName, profileProvider, {
+            basePath: options.basePath,
+            labels: options.labels,
+            profileName: name,
+            profileVersion,
+          })
       )
     );
   }
@@ -249,12 +300,19 @@ class OutlineProfileProvider extends OutlineElement {
   constructor(
     name: string,
     settings: NormalizedProfileProviderSettings,
-    options: { basePath: string, labels: SuperJsonLabels, profileName: string, profileVersion?: string }
+    options: {
+      basePath: string;
+      labels: SuperJsonLabels;
+      profileName: string;
+      profileVersion?: string;
+    }
   ) {
     super(name, TreeItemCollapsibleState.Expanded);
     this.iconPath = new ThemeIcon('map');
     this.command = {
-      title: 'Definition', command: 'vscode.open', arguments: options.labels.profileProvider(options.profileName, name)
+      title: 'Definition',
+      command: 'vscode.open',
+      arguments: options.labels.profileProvider(options.profileName, name),
     };
 
     if ('file' in settings) {
@@ -263,7 +321,11 @@ class OutlineProfileProvider extends OutlineElement {
       );
     } else if (options.profileVersion !== undefined) {
       this.children.push(
-        new OutlineUri(Uri.parse(`${DEFAULT_API_URL}raw/${options.profileName}.${name}@${options.profileVersion}.suma`))
+        new OutlineUri(
+          Uri.parse(
+            `${DEFAULT_API_URL}raw/${options.profileName}.${name}@${options.profileVersion}.suma`
+          )
+        )
       );
     }
   }
@@ -275,12 +337,14 @@ class OutlineProvider extends OutlineElement {
   constructor(
     name: string,
     settings: NormalizedProviderSettings,
-    options: { basePath: string, labels: SuperJsonLabels }
+    options: { basePath: string; labels: SuperJsonLabels }
   ) {
     super(name, TreeItemCollapsibleState.Collapsed);
     this.iconPath = new ThemeIcon('globe');
     this.command = {
-      title: 'Definition', command: 'vscode.open', arguments: options.labels.provider(name)
+      title: 'Definition',
+      command: 'vscode.open',
+      arguments: options.labels.provider(name),
     };
 
     if (settings.file !== undefined) {
