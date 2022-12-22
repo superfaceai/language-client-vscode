@@ -30,8 +30,10 @@
   },
   "dependencies": {
     "@superfaceai/language-server": "^1.1.0",
+    "@superfaceai/one-sdk": "2.2.0-rc.3",
     "ajv": "^8.11.0",
-    "vscode-languageclient": "^8.0.2"
+    "vscode-languageclient": "^8.0.2",
+    "jsonc-parser": "^3.2.0"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -52,7 +54,8 @@
   },
   "activationEvents": [
     "onLanguage:comlink-map",
-    "onLanguage:comlink-profile"
+    "onLanguage:comlink-profile",
+    "onView:superfaceOutline"
   ],
   "main": "dist/extension",
   "contributes": {
@@ -81,14 +84,20 @@
     },
     "commands": [
       {
-        "category": "Comlink Server",
+        "category": "Superface",
         "command": "superfaceLanguageClient.commands.languageServer.restart",
-        "title": "(Re)Start Superface language server"
+        "title": "(Re)Start Comlink language server"
       },
       {
-        "category": "Comlink Server",
+        "category": "Superface",
         "command": "superfaceLanguageClient.commands.languageServer.stop",
-        "title": "Stop Superface language server"
+        "title": "Stop Comlink language server"
+      },
+      {
+        "category": "Superface",
+        "command": "superfaceLanguageClient.commands.outline.refresh",
+        "title": "Refresh Superface Outline",
+        "icon": "$(refresh)"
       }
     ],
     "languages": [
@@ -153,6 +162,23 @@
         "fileMatch": "super.json",
         "url": "https://superface.ai/docs/comlink/super.json"
       }
-    ]
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "superfaceOutline",
+          "name": "Superface Outline"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "superfaceLanguageClient.commands.outline.refresh",
+          "when": "view == superfaceOutline",
+          "group": "navigation"
+        }
+      ]
+    }
   }
 }
