@@ -3,9 +3,7 @@
 !README.md
 !LICENSE.md
 
-!node_modules/
-!dist/
-
+!out/
 !package.json
 !syntaxes/*.json
 !snippets/*.json

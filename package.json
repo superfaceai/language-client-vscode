@@ -3,20 +3,23 @@
   "displayName": "Superface Language Client",
   "description": "Superface Language Client for Visual Studio Code",
   "icon": "docs/LogoGreen.png",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "repository": "https://github.com/superfaceai/language-client-vscode",
   "author": "Superface Team",
   "publisher": "superfaceai",
   "license": "MIT",
   "files": [
-    "dist/**/*",
-    "syntaxes/**/*.tmLanguage.json"
+    "out/**/*",
+    "syntaxes/**/*.tmLanguage.json",
+    "snippets/**/*.snippets.json"
   ],
+  "main": "out/main",
   "devDependencies": {
     "@types/node": "^18.11.9",
     "@types/vscode": "1.70.0",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^5.42.1",
+    "esbuild": "^0.16.10",
     "eslint": "^8.27.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^3.5.2",
@@ -32,20 +35,21 @@
     "@superfaceai/language-server": "^1.1.0",
     "@superfaceai/one-sdk": "2.2.0-rc.3",
     "ajv": "^8.11.0",
-    "vscode-languageclient": "^8.0.2",
-    "jsonc-parser": "^3.2.0"
+    "jsonc-parser": "^3.2.0",
+    "vscode-languageclient": "^8.0.2"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "build:watch": "yarn build --watch",
     "prebuild": "yarn clean",
-    "clean": "rimraf dist/",
+    "clean": "rimraf dist/ out/",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
     "format": "prettier -c src/",
     "format:fix": "prettier --write src/",
     "prepush": "yarn lint && yarn format",
-    "package": "vsce package --yarn",
+    "bundle": "esbuild dist/extension.js --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node --minify",
+    "package": "yarn run bundle && vsce package --yarn",
     "deploy:vsce": "vsce publish --yarn",
     "deploy:osvx": "echo 'use `npx osvx publish`' instead"
   },
@@ -57,7 +61,6 @@
     "onLanguage:comlink-profile",
     "onView:superfaceOutline"
   ],
-  "main": "dist/extension",
   "contributes": {
     "configuration": {
       "type": "object",
