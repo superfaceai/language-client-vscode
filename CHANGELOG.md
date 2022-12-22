@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2022-12-22
 ### Added
 - Superface outline view prototype - shows super.json and allows easy navigation to source files (profiles, maps, providers)
 
@@ -109,7 +110,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - `vsix` file release in github flow
 
-[Unreleased]: https://github.com/superfaceai/language-client-vscode/compare/v1.1.2...HEAD
+[Unreleased]: https://github.com/superfaceai/language-client-vscode/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/superfaceai/language-client-vscode/compare/v1.1.2...v1.2.0
 [1.1.2]: https://github.com/superfaceai/language-client-vscode/compare/v1.1.1...v1.1.2
 [1.1.1]: https://github.com/superfaceai/language-client-vscode/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/superfaceai/language-client-vscode/compare/v1.0.1-beta.0...v1.1.0
