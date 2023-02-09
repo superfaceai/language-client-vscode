@@ -29,11 +29,11 @@
     "vsce": "^2.14.0"
   },
   "dependencies": {
-    "@superfaceai/language-server": "^1.1.0",
-    "@superfaceai/one-sdk": "2.2.0-rc.3",
+    "@superfaceai/language-server": "1.1.2",
+    "@superfaceai/one-sdk": "^2.3.0",
     "ajv": "^8.11.0",
-    "vscode-languageclient": "^8.0.2",
-    "jsonc-parser": "^3.2.0"
+    "jsonc-parser": "^3.2.0",
+    "vscode-languageclient": "^8.0.2"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
