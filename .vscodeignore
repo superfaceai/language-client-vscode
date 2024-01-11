@@ -1,9 +1,8 @@
 **/*
 
 !README.md
-!LICENSE.md
+!LICENSE
 
-!node_modules/
 !dist/
 
 !package.json

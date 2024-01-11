@@ -30,32 +30,22 @@ code --install-extension <path-to-vsix>
 ## Usage
 
 The extension provides following features:
-* Syntax highlighting for Comlink maps and profiles
-* Code snippets for Comlink maps and profiles
-* JSON schemas for Comlink ASTs and super.json
-* Superface outline view to show super.json configuration in current workspace
 * Bundled [language server](https://github.com/superfaceai/language-server)
-	- Syntax checking
 	- Semantic linting
 	- Workspace symbol search (requires VSCode to be open in workspace mode)
-
-![preview](docs/preview.gif)
 
 ## Development
 
 When developing, start with cloning the repository using `git clone https://github.com/superfaceai/language-client-vscode.git` (or `git clone git@github.com:superfaceai/language-client-vscode.git` if you have repository access).
 
-After cloning, the dependencies must be downloaded using `yarn install` or `npm install`.
+After cloning, the dependencies must be downloaded using `yarn install`.
 
 Now the repository is ready for code changes.
 
 To test your changes there is a launch task prepared in the `.vscode` folder. Open the Run tab in your vscode and select the task "Launch Client". Then click the "Start Debugging" button or F5 and a new vscode window should open up with the WIP extension active.
 
 The `package.json` also contains scripts (runnable by calling `yarn <script-name>` or `npm run <script-name>`):
-- `lint` - lint the code (use `lint:fix` to run autofix)
-- `format` - check the code formatting (use `format:fix` to autoformat)
 - `build` - run the typescript compiler
-- `prepush` - run `test`, `lint` and `format` checks. This should run without errors before you push anything to git.
 - `package` - package the built output into a vsix extension
 
 To install the extension from a local build, execute the `build` script, then the `package` script and then [install](#install) the generated vsix artifact.
@@ -89,4 +79,4 @@ Note: If editing the README, please conform to the [standard-readme](https://git
 ## License
 
 The Superface is licensed under the [MIT](LICENSE).
-© 2022 Superface
+© 2024 Superface

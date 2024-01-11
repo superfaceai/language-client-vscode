@@ -5,3 +5,4 @@ yalc.lock
 fixtures/*
 *.vsix
 docs/*.mov
+workdir

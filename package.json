@@ -3,20 +3,21 @@
   "displayName": "Superface Language Client",
   "description": "Superface Language Client for Visual Studio Code",
   "icon": "docs/LogoGreen.png",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "repository": "https://github.com/superfaceai/language-client-vscode",
   "author": "Superface Team",
   "publisher": "superfaceai",
   "license": "MIT",
   "files": [
-    "dist/**/*",
-    "syntaxes/**/*.tmLanguage.json"
+    "dist/**/*"
   ],
   "devDependencies": {
     "@types/node": "^18.11.9",
-    "@types/vscode": "1.70.0",
+    "@types/vscode": "1.75.0",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^5.42.1",
+    "@vscode/vsce": "^2.22.0",
+    "esbuild": "^0.19.11",
     "eslint": "^8.27.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^3.5.2",
@@ -25,19 +26,16 @@
     "eslint-plugin-simple-import-sort": "^8.0.0",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
-    "typescript": "^4.8.4",
-    "vsce": "^2.14.0"
+    "typescript": "^5",
+    "vscode-languageclient": "^9.0.1"
   },
   "dependencies": {
-    "@superfaceai/language-server": "1.1.2",
-    "@superfaceai/one-sdk": "^2.3.0",
-    "ajv": "^8.11.0",
-    "jsonc-parser": "^3.2.0",
-    "vscode-languageclient": "^8.0.2"
+    "@superfaceai/language-server": "link:../one-sdk/packages/comlink_language_server"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "build:watch": "yarn build --watch",
+    "build": "yarn build:client && yarn build:server",
+    "build:client": "esbuild src/extension.ts --bundle --target=es2020 --platform=node --tree-shaking=true --outdir=dist --external:vscode",
+    "build:server": "yarn install --production --modules-folder dist/node_modules",
     "prebuild": "yarn clean",
     "clean": "rimraf dist/",
     "lint": "eslint src/",
@@ -47,17 +45,16 @@
     "prepush": "yarn lint && yarn format",
     "package": "vsce package --yarn",
     "deploy:vsce": "vsce publish --yarn",
-    "deploy:osvx": "echo 'use `npx osvx publish`' instead"
+    "deploy:osvx": "npx osvx publish"
   },
   "engines": {
-    "vscode": "^1.70.0"
+    "vscode": "^1.85.0"
   },
+  "main": "dist/extension.js",
   "activationEvents": [
-    "onLanguage:comlink-map",
-    "onLanguage:comlink-profile",
-    "onView:superfaceOutline"
+    "onLanguage:typescript",
+    "onLanguage:javascript"
   ],
-  "main": "dist/extension",
   "contributes": {
     "configuration": {
       "type": "object",
@@ -69,11 +66,12 @@
           "default": true,
           "description": "Controls whether the language server is enabled."
         },
-        "superfaceLanguageClient.languageServer.trace": {
+        "superfaceLanguageClient.languageServer.trace.server": {
           "scope": "window",
           "type": "string",
           "enum": [
             "off",
+            "compact",
             "messages",
             "verbose"
           ],
@@ -92,93 +90,13 @@
         "category": "Superface",
         "command": "superfaceLanguageClient.commands.languageServer.stop",
         "title": "Stop Comlink language server"
-      },
-      {
-        "category": "Superface",
-        "command": "superfaceLanguageClient.commands.outline.refresh",
-        "title": "Refresh Superface Outline",
-        "icon": "$(refresh)"
-      }
-    ],
-    "languages": [
-      {
-        "id": "comlink-map",
-        "aliases": [
-          "Comlink Map",
-          "Superface Map"
-        ],
-        "extensions": [
-          ".suma"
-        ],
-        "configuration": "syntaxes/language-configuration.json"
-      },
-      {
-        "id": "comlink-profile",
-        "aliases": [
-          "Comlink Profile",
-          "Superface Profile"
-        ],
-        "extensions": [
-          ".supr"
-        ],
-        "configuration": "syntaxes/language-configuration.json"
-      }
-    ],
-    "grammars": [
-      {
-        "language": "comlink-map",
-        "scopeName": "source.comlink.map",
-        "path": "syntaxes/comlink-map.tmLanguage.json",
-        "embeddedLanguages": {
-          "meta.expression.jessie.comlink.map": "javascript"
-        }
-      },
-      {
-        "language": "comlink-profile",
-        "scopeName": "source.comlink.profile",
-        "path": "syntaxes/comlink-profile.tmLanguage.json"
-      }
-    ],
-    "snippets": [
-      {
-        "language": "comlink-map",
-        "path": "snippets/comlink-map.snippets.json"
-      },
-      {
-        "language": "comlink-profile",
-        "path": "snippets/comlink-profile.snippets.json"
       }
     ],
     "jsonValidation": [
       {
-        "fileMatch": "*.suma.ast.json",
-        "url": "https://raw.githubusercontent.com/superfaceai/ast-js/main/src/interfaces/ast/map-ast.schema.json"
-      },
-      {
-        "fileMatch": "*.supr.ast.json",
-        "url": "https://raw.githubusercontent.com/superfaceai/ast-js/main/src/interfaces/ast/profile-ast.schema.json"
-      },
-      {
         "fileMatch": "super.json",
         "url": "https://superface.ai/docs/comlink/super.json"
       }
-    ],
-    "views": {
-      "explorer": [
-        {
-          "id": "superfaceOutline",
-          "name": "Superface Outline"
-        }
-      ]
-    },
-    "menus": {
-      "view/title": [
-        {
-          "command": "superfaceLanguageClient.commands.outline.refresh",
-          "when": "view == superfaceOutline",
-          "group": "navigation"
-        }
-      ]
-    }
+    ]
   }
 }

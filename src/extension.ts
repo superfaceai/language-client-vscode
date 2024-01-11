@@ -2,11 +2,11 @@ import * as path from 'path';
 import * as vscode from 'vscode';
 
 import { runClient, stopClient } from './language-client';
-import { SuperfaceOutline } from './superface-outline';
 
-export function activate(context: vscode.ExtensionContext): void {
+export async function activate(context: vscode.ExtensionContext): Promise<void> {
   const serverModule = context.asAbsolutePath(
     path.join(
+      'dist',
       'node_modules',
       '@superfaceai',
       'language-server',
@@ -15,54 +15,27 @@ export function activate(context: vscode.ExtensionContext): void {
     )
   );
 
-  const configuredView = vscode.workspace.getConfiguration();
-
-  const workspaceRoot = vscode.workspace.workspaceFolders?.[0]?.uri?.fsPath;
-  let superfaceOutline: SuperfaceOutline | undefined = undefined;
-  if (workspaceRoot !== undefined) {
-    superfaceOutline = new SuperfaceOutline(workspaceRoot);
-
-    context.subscriptions.push(
-      vscode.window.registerTreeDataProvider(
-        'superfaceOutline',
-        superfaceOutline
-      )
-    );
-  }
-
   context.subscriptions.push(
     vscode.commands.registerCommand(
       'superfaceLanguageClient.commands.languageServer.restart',
       () => {
-        runClient(serverModule, true);
+        runClient(serverModule, { force: true })
       }
     )
   );
   context.subscriptions.push(
     vscode.commands.registerCommand(
       'superfaceLanguageClient.commands.languageServer.stop',
-      async () => {
-        return stopClient();
-      }
-    )
-  );
-  context.subscriptions.push(
-    vscode.commands.registerCommand(
-      'superfaceLanguageClient.commands.outline.refresh',
-      () => {
-        superfaceOutline?.refresh();
-      }
+      () => stopClient()
     )
   );
 
-  if (
-    configuredView.get('superfaceLanguageClient.languageServer.enabled') ===
-    true
-  ) {
-    runClient(serverModule);
+  const config = vscode.workspace.getConfiguration('superfaceLanguageClient')
+  if (config.get('languageServer.enabled') === true) {
+    await runClient(serverModule, {});
   }
 }
 
-export function deactivate(): Promise<void> | undefined {
+export async function deactivate(): Promise<void> {
   return stopClient();
 }
